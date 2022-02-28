@@ -1,0 +1,12 @@
+
+# DO NOT REMOVE THIS LINE AND THE LINES BELLOW UPGRADE_INSECURE_REQUESTS:otpl.pk
+Header always set Content-Security-Policy: upgrade-insecure-requests
+# DO NOT REMOVE THIS LINE AND THE LINES BELLOW UPGRADE_INSECURE_REQUESTS:otpl.pk
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteRule ^(.*)$ public/$1 [L]
+</IfModule>
+
+
+
+
