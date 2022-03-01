@@ -140,7 +140,7 @@
 								<a href="{{route('institute.profile.show')}}">
 									<div class="media-title font-weight-semibold">{{Auth::user()->name}}</div>
 								</a>
-								<div class="font-size-xs opacity-50">OTLP Inc.
+								<div class="font-size-xs opacity-50">Inc.
 								</div>
 							</div>
 
