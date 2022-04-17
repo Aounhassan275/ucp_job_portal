@@ -15,44 +15,11 @@ class UserSeeder extends Seeder
     public function run()
     {
         DB::table('categories')->insert([
-            [ 'name' => 'IT',
-            'price' => '150'],
+            [ 'name' => 'IT'],
             
-            ['name' => 'Bussiness',
-            'price' => '250'],
+            ['name' => 'Bussiness'],
 
-            ['name' => 'Education',
-            'price' => '250'],
-        ]);   
-        DB::table('prices')->insert([
-            [ 'page' => 'Institute'],
-            
-            ['page' => 'Service Provider'],
-        ]);   
-        DB::table('skills')->insert([
-            [ 'name' => 'IT',
-            'price' => '150'],
-            
-            ['name' => 'Bussiness',
-            'price' => '250'],
-
-            ['name' => 'Education',
-            'price' => '250'],
-        ]);  
-        DB::table('s_deposits')->insert([
-            [ 'skill_id' => '1',
-            't_id' => '1234',
-            'payment' => 'jazzcash',
-            'service_id' => '1',
-            'status' => 'active',
-            'price' => '150'],
-            
-            [ 'skill_id' => '2',
-            't_id' => '1234',
-            'payment' => 'jazzcash',
-            'service_id' => '2',
-            'status' => 'active',
-            'price' => '250'],
+            ['name' => 'Education'],
         ]);  
         DB::table('profiles')->insert([
             [ 'name' => 'Aoun Hassan',
@@ -60,11 +27,13 @@ class UserSeeder extends Seeder
             'email' => 'candidate1@mail.com',
             'professional' => 'Web Developer',
             'number' => '923030672683',
-            'status' => 'Not Approved',
+            'status' => 'Approved',
+            'profile' => 'Approved',
             'image' => '/profile/1.jpg',
             'cnic' => '00000-0000000-0',
             'address' => 'Sargodha,Punjab',
             'candidate_id' => '1',
+            'category_id' => '1',
             'social' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde, iure beatae! Voluptas tempora doloremque atque repudiandae maiores odio magni. Illo ut nihil officia numquam in. Deleniti pariatur at minima quaerat!',
             'qualification' => 'Msc(Information Technology)',
             'job_description' => 'Qui corrupti animi, dignissimos veritatis, necessitatibus consequuntur nobis, placeat beatae dolorum ullam harum at atque dolor! Accusantium cupiditate ipsum placeat, vel voluptatibus non eaque, animi neque minima facere provident aspernatur!',
@@ -74,11 +43,13 @@ class UserSeeder extends Seeder
            'email' => 'candidate2@mail.com',
            'professional' => 'Web Developer',
            'number' => '923030672683',
-           'status' => 'Not Approved',
+           'status' => 'Approved',
+           'profile' => 'Approved',
            'image' => '/profile/1.jpg',
            'cnic' => '00000-0000000-0',
            'address' => 'Sargodha,Punjab',
            'candidate_id' => '2',
+           'category_id' => '2',
            'social' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde, iure beatae! 
            Voluptas tempora doloremque atque repudiandae maiores odio magni. Illo ut nihil 
            officia numquam in. Deleniti pariatur at minima quaerat!',
@@ -91,10 +62,12 @@ class UserSeeder extends Seeder
           'professional' => 'Web Developer',
           'number' => '923030672683',
           'status' => 'Not Approved',
+          'profile' => 'Not Approved',
           'image' => '/profile/1.jpg',
           'cnic' => '00000-0000000-0',
           'address' => 'Sargodha,Punjab',
           'candidate_id' => '3',
+          'category_id' => '3',
           'social' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde, iure beatae! Voluptas tempora doloremque atque repudiandae maiores odio magni. Illo ut nihil officia numquam in. Deleniti pariatur at minima quaerat!',
           'qualification' => 'Msc(Information Technology)',
           'job_description' => 'Qui corrupti animi, dignissimos veritatis, necessitatibus consequuntur nobis, placeat beatae dolorum ullam harum at atque dolor! Accusantium cupiditate ipsum placeat, vel voluptatibus non eaque, animi neque minima facere provident aspernatur!',

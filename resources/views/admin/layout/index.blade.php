@@ -140,7 +140,7 @@
 
 							<div class="media-body">
 							<div class="media-title font-weight-semibold">{{Auth::user()->name}}</div>
-								<div class="font-size-xs opacity-50">OPTL Inc.
+								<div class="font-size-xs opacity-50">Inc.
 								</div>
 							</div>
 
@@ -186,21 +186,6 @@
 							</a>
 						</li>		
 						<li class="nav-item">
-							<a href="{{route('admin.deposit.index')}}" class="nav-link {{Request::is('admin/candidate/deposit')?'active':''}}">
-								<i class="icon-user"></i>
-								<span>Candidates Deposit</span>
-								<span class="badge bg-orange-400 align-self-center ml-auto">{{App\Models\Deposit::pending()->count()}}</span>
-							</a>
-						</li>	
-						<!--<li class="nav-item">-->
-						<!--	<a href="{{route('admin.hire.index')}}" class="nav-link {{Request::is('admin.deposit.index')?'active':''}}">-->
-						<!--		<i class="icon-user"></i>-->
-						<!--		<span>Candidates Hire Request</span>-->
-						<!--		<span class="badge bg-blue-400 align-self-center ml-auto">{{App\Models\Hire::onHold()->count()}}</span>-->
-
-						<!--	</a>-->
-						<!--</li>	-->
-						<li class="nav-item">
 							<a href="{{route('admin.hire.completed')}}" class="nav-link {{Request::is('admin/hire/completed')?'active':''}}">
 								<i class="icon-user"></i>
 								<span>Candidates Hire Request</span>
@@ -211,14 +196,7 @@
 								<i class="icon-office"></i>
 								<span>Institute</span>
 							</a>
-						</li>	
-						<li class="nav-item">
-							<a href="{{route('admin.institute.index')}}" class="nav-link {{Request::is('admin/institute/deposit')?'active':''}}">
-								<i class="icon-office"></i>
-								<span>Institute Deposit</span>
-								<span class="badge bg-orange-400 align-self-center ml-auto">{{App\Models\Institute::pending()->count()}}</span>
-							</a>
-						</li>	
+						</li>
 						<li class="nav-item">
 							<a href="{{route('admin.job.index')}}" class="nav-link {{Request::is('admin/job')?'active':''}}">
 								<i class="icon-office"></i>
@@ -232,18 +210,6 @@
 								<span class="badge bg-success-400 align-self-center ml-auto">{{App\Models\Message::unread()->count()}}</span>
 							</a>
 						</li>
-						<li class="nav-item">
-							<a href="{{route('admin.payment.index')}}" class="nav-link {{Request::is('admin/payment')?'active':''}}">
-								<i class="icon-office"></i>
-								<span>Payment Way</span>
-							</a>
-						</li>	
-						<li class="nav-item">
-							<a href="{{route('admin.price.index')}}" class="nav-link {{Request::is('admin/price')?'active':''}}">
-								<i class="icon-office"></i>
-								<span>Price</span>
-							</a>
-						</li>	
 						<li class="nav-item">
 							<a href="{{route('admin.bcategory.index')}}" class="nav-link {{Request::is('admin/bcategory')?'active':''}}">
 								<i class="icon-office"></i>
@@ -260,16 +226,6 @@
 							<a href="{{route('admin.blog.index')}}" class="nav-link {{Request::is('admin/blog')?'active':''}}">
 								<i class="icon-office"></i>
 								<span>Manage Blog</span>
-							</a>
-						</li>	
-						<li class="nav-item">
-							<a href="{{route('admin.withdraw.index')}}" class="nav-link {{Request::is('admin/withdraw')?'active':''}}">
-								<i class="icon-office"></i>
-								<span>Withdraw Requests</span>
-								<span class="badge bg-success-400 align-self-center ml-auto">
-									{{App\Models\C_withdraw::pending()->count()+App\Models\I_withdraw::pending()->count()+App\Models\S_withdraw::pending()->count()}}
-								</span>
-
 							</a>
 						</li>	
 						<li class="nav-item">

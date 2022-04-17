@@ -11,7 +11,7 @@ class Profile extends Model
     protected $fillable = [
         'name','fname','email','professional','number','image','cnic','social',
         'url_fb','url_linkedin','url_twitter','qualification','p_date','job_title',
-        'job_description','candidate_id','address','status','profile','a_date'
+        'job_description','candidate_id','address','status','profile','a_date','category_id'
     ];
     public function setImageAttribute($value){
         $this->attributes['image'] = ImageHelper::saveAImage($value,'/profile/');
@@ -20,10 +20,6 @@ class Profile extends Model
     {
         return $this->belongsTo('App\Models\Candidate');
     }
-    public function deposits()
-    {
-        return $this->hasMany('App\Models\Deposit');
-    }   
     public function profiles()
     {
         return $this->hasMany(Profile::class);
@@ -31,6 +27,10 @@ class Profile extends Model
     public function hires()
     {
         return $this->hasMany(Hire::class);
+    }      
+    public function category()
+    {
+        return $this->belongsTo(Category::class,'category_id');
     }   
     public static function notapproved()
     {
@@ -40,15 +40,4 @@ class Profile extends Model
     {
         return (New static)::where('profile','Approved')->get();
     }  
-    public function checkStatus(){
-        if(!$this->a_date){
-            return 'fresh';
-
-        } elseif (Carbon::now()->diffInDays($this->a_date) > 90){
-            return 'expired';
-
-        } else {
-            return 'old';
-        }
-    }
 }

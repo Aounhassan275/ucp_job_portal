@@ -19,8 +19,7 @@ class Institute extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','code','refer_by','status','image','address','balance','phone',
-        'a_date','verification','spassword'
+        'name', 'email', 'password','status','image','address','phone'
     ];
 
     /**

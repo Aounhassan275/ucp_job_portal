@@ -19,16 +19,10 @@ class CreateInstitutesTable extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->string('spassword')->nullable();
             $table->string('image')->nullable();
             $table->string('address')->nullable();
-            $table->string('code');
             $table->string('phone')->nullable();
             $table->string('status')->default('pending');
-            $table->float('balance')->default('0');
-            $table->date('a_date')->nullable(); 
-            $table->string('refer_by')->nullable();
-            $table->string('verification')->nullable();
             $table->timestamps();
         });
     }

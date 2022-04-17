@@ -40,7 +40,7 @@ class HireController extends Controller
     {
         $hire = Hire::create($request->all()); 
         toastr()->success('Your Hire Request Posted Successfully');
-        return redirect()->route('institute.candidate.index');
+        return redirect()->route('institute.hire.index');
     }
 
     /**
@@ -86,5 +86,14 @@ class HireController extends Controller
     public function destroy(Hire $hire)
     {
         //
+    }
+     public function completed($id)
+    {
+        $hire = Hire::find($id);
+        $hire->update([
+            'status' => 'Completed'
+        ]);
+        toastr()->success('Hire Request is Completed Now');
+        return redirect()->back();
     }
 }

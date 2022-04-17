@@ -46,37 +46,6 @@
                         </div>
                         <!-- /navigation -->
 
-
-                        <!-- Online users -->
-                        <div class="card">
-                            <div class="card-header bg-transparent header-elements-inline">
-                                <span class="card-title font-weight-semibold">Package Deposit Request</span>
-                            </div>
-
-                            <div class="card-body">
-                                <ul class="media-list">
-                                    @foreach ($candidate->deposits as $deposit)
-                                    <li class="media">
-                                        <a href="#" class="mr-3">
-                                            <img src="{{asset('global_assets/images/placeholders/placeholder.jpg')}}" width="36" height="36" class="rounded-circle" alt="">
-                                        </a>
-                                        <div class="media-body">
-                                            <a href="#" class="media-title font-weight-semibold">Amount: PKR{{$deposit->price}}</a>
-                                            <div class="font-size-sm text-muted">Transcation ID#{{$deposit->t_id}}</div>
-                                            <div class="font-size-sm text-muted">Payment Method: {{$deposit->payment}}</div>
-                                            <div class="font-size-sm text-muted">Date:{{ \Carbon\Carbon::parse($deposit->createdat)->format('d/m/Y')}}
-                                            </div>
-                                        </div>
-                                        <div class="ml-3 align-self-center">
-                                            <span class="badge badge-mark border-success"></span>
-                                        </div>
-                                    </li>
-                                    @endforeach
-                                  
-                                </ul>
-                            </div>
-                        </div>
-                        <!-- /online users -->
                     </div>
                     <!-- /sidebar content -->
 
@@ -121,41 +90,7 @@
                                     </div>
                                 </div>
                             </div>
-                            @foreach ($candidate->deposits as $deposit)
-                            <div class="col-lg-6">
-                                <div class="card border-left-3 border-left-danger rounded-left-0">
-                                    <div class="card-body">
-                                        <div class="d-sm-flex align-item-sm-center flex-sm-nowrap">
-                                            <div>
-                                                <h6 class="font-weight-semibold">Category Candidate Choose</h6>
-                                            </div>
-
-                                            <div class="text-sm-right mb-0 mt-3 mt-sm-0 ml-auto">
-                                                <h6 class="font-weight-semibold">{{$deposit->category1}}</h6>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-6">
-                                <div class="card border-left-3 border-left-success rounded-left-0">
-                                    <div class="card-body">
-                                        <div class="d-sm-flex align-item-sm-center flex-sm-nowrap">
-                                            <div>
-                                                <h6 class="font-weight-semibold">Category Candidate Choose</h6>
-                                               
-                                            </div>
-
-                                            <div class="text-sm-right mb-0 mt-3 mt-sm-0 ml-auto">
-                                                <h6 class="font-weight-semibold">{{$deposit->category2}}</h6>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
-                        @endforeach
                         <!-- /invoices -->
 
                         <!-- Profile info -->

@@ -22,6 +22,7 @@ class CreateJobsTable extends Migration
             $table->string('salary')->nullable();
             $table->string('salary1')->nullable();
             $table->string('city')->nullable();
+            $table->integer('view')->default(0);
             $table->text('summary');
             $table->string('status')->default('Pending');   
             $table->unsignedBigInteger('category_id')->nullable();

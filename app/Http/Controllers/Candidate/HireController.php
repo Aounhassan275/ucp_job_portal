@@ -17,6 +17,15 @@ class HireController extends Controller
         toastr()->success('Hire Request is Completed Now');
         return redirect()->back();
     }
+    public function inProccess($id)
+    {
+        $hire = Hire::find($id);
+        $hire->update([
+            'status' => 'In Process'
+        ]);     
+        toastr()->success('Hire Request is In Process Now');
+        return redirect()->back();
+    }
     public function detail($id)
     {
       $hire = Hire::find($id);

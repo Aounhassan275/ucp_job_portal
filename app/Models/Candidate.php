@@ -18,7 +18,7 @@ class Candidate extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','code','refer_by','status','address','image','cnic','balance','phone','verification'
+        'name', 'email', 'password','status','address','image','cnic','phone'
     ];
 
     /**
@@ -46,21 +46,8 @@ class Candidate extends Authenticatable
     public function setImageAttribute($value){
         $this->attributes['image'] = ImageHelper::saveCImage($value,'/candidate/');
     }
-    public function refers()
-    {
-        return $this->hasMany('App\Models\Candidate','refer_by');
-    }
-
     public function profiles(){
         return $this->hasMany(Profile::class);
-    }  
-    public function deposits()
-    {
-        return $this->hasMany(Deposit::class);
-    }     
-    public function c_withdraws()
-    {
-        return $this->hasMany(C_withdraw::class);
     }   
     public function applicants()
     {

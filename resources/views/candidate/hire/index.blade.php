@@ -58,7 +58,7 @@
 
                             <div class="dropdown-menu dropdown-menu-right">
                                 <a href="{{route('candidate.hire.detail',$hire->id)}}" class="dropdown-item"><i class="icon-file-pdf"></i> View Detail</a>
-                                <a href="{{route('candidate.hire.onHold',$hire->id)}}" class="dropdown-item"><i class="icon-file-pdf"></i> Completed</a>
+                                {{-- <a href="{{route('candidate.hire.onHold',$hire->id)}}" class="dropdown-item"><i class="icon-file-pdf"></i> Completed</a> --}}
                                 {{-- <a href="{{route('admin.candidate.active',$candidate->id)}}" class="dropdown-item"><i class="icon-file-pdf"></i> Active Candidate</a> --}}
                                 {{-- <a href="{{route('candidate.candidate.delete',$candidate->id)}}" class="dropdown-item"><i class="icon-file-excel"></i> Delete</a>
                                 <a href="{{route('admin.candidate.block',$candidate->id)}}" class="dropdown-item"><i class="icon-file-excel"></i> Block</a>

@@ -3,7 +3,9 @@
 @section('title')
     Create Profile
 @endsection
-
+@section('styles')
+<script src="{{asset('global_assets/js/demo_pages/form_select2.js')}}"></script>
+@endsection
 @section('content')
 <div class="row">
     <div class="col-md-12">
@@ -80,10 +82,17 @@
                             <label for="">Passing Date<span style="color:red">(*Optional)</span></label>
                             <input type="date" maxlength="10" class="form-control"  minlength="10" name="p_date" placeholder="dd-mm-yyyy">
                         </div>
-                        {{-- <div class="form-group col-md-6">                 
-                            <label for="">Job Title</label>
-                            <input class="form-control" type="text" name="job_title" placeholder="" value="" />    
-                        </div>    --}}
+                        <div class="form-group col-md-6">
+                            <label>Select Category</label>
+                            <select data-placeholder="Category 'as'"  name="category_id" id="category-selector"   class="form-control select-minimum" data-fouc required>
+                                <option></option>
+                                <optgroup label="Top Categories">
+                                    @foreach(App\Models\Category::all() as $category)
+                                    <option value="{{$category->id}}">{{$category->name}}</option>
+                              @endforeach
+                                </optgroup>
+                            </select>                                                     
+                        </div>   
                         <div class="form-group col-md-6">                 
                             <label for="">Description<span style="color:green;">(*Required)</span></label>
                             <textarea name="job_description" id="" cols="30" rows="2" placeholder="Write Something About Your Past Experience" class="form-control" required></textarea>

@@ -22,12 +22,8 @@ class CreateCandidatesTable extends Migration
             $table->string('cnic')->nullable();
             $table->string('image')->nullable();
             $table->string('address');
-            $table->string('code')->nullable();
             $table->string('phone')->nullable();
             $table->string('status')->default('pending');
-            $table->float('balance')->default('0');
-            $table->string('refer_by')->nullable();
-            $table->string('verification')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

@@ -127,7 +127,7 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <label>Social</label>
-                                            <textarea class="WYSIWYG" name="social" cols="102" rows="3" id="summary" spellcheck="true" readonly>{{$profile->social}}</textarea>
+                                            <textarea class="form-control" name="social" cols="102" rows="3" id="summary" spellcheck="true" readonly>{{$profile->social}}</textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -162,12 +162,12 @@
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <label>Job Title</label>
-                                            <input type="text" readonly="readonly" value="{{$profile->job_title}}" class="form-control">
+                                            <label>Profile Category</label>
+                                            <input type="text" readonly="readonly" value="{{@$profile->category->name}}" class="form-control">
                                         </div>
                                         <div class="col-md-6">
                                             <label>Job Description</label>
-                                            <textarea class="WYSIWYG" name="job_description" cols="47" rows="3" id="summary" spellcheck="true" readonly>{{$profile->job_description}}</textarea>
+                                            <textarea class="form-control WYSIWYG" name="job_description" cols="47" rows="3" id="summary" spellcheck="true" readonly>{{$profile->job_description}}</textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -201,6 +201,19 @@
                 <div class="modal-body">
                     <div class="form-group">
                         <div class="row">
+                            <div class="col-sm-6">
+                                <label>Interview Time:</label>
+                                <input type="time" class="form-control" name="time" required>
+                            </div>
+                            <div class="col-sm-6">
+                                <label>Interview Date:</label>
+                                <input type="date" class="form-control" name="date" required>
+                            </div>
+                            <div class="col-sm-12">
+                                <label>Interview Joining Link:</label>
+                                <input type="text" class="form-control" name="link" required>
+                            </div>
+
                             <div class="col-sm-12">
                                 <label>Description:</label>
                                 <textarea name="description" class="form-control" id="" cols="30" rows="4" required></textarea>                            

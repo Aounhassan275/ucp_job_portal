@@ -39,14 +39,6 @@ class ApplicantController extends Controller
      */
     public function store(Request $request)
     {
-        // $validator = Validator::make($request->all(),[
-        //     'candidate_id' => 'required|unique:applicants'
-        // ]);
-
-        // if($validator->fails()){
-        //     toastr()->error('Transaction Id already exists');
-        //     return redirect()->back();
-        // }
         $applicant = Applicant::create($request->all());
         toastr()->success('You Apply For The Job Successfully');
         return redirect()->route('candidate.job.index');

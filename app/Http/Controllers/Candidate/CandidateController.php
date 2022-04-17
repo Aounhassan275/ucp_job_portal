@@ -40,55 +40,15 @@ class CandidateController extends Controller
      */
     public function store(Request $request)
     {
-        if($request->code)
-        { 
-         
-            $candidate= Candidate::where('code',$request->code)->first();
-            $member= Member::where('code',$request->code)->first();
-            
-            if($candidate){
-             $validator = Validator::make($request->all(),[
-                'email' => 'required|unique:candidates'
-            ]);
+        $validator = Validator::make($request->all(),[
+            'email' => 'required|unique:candidates'
+        ]);
 
-            if($validator->fails()){
-                toastr()->error('Email Address  already exists');
-                return redirect()->back();
-            }
-            Candidate::create([
-                    'code' => uniqid(),
-                    'refer_by' => $candidate->id
-                ]+$request->all());
-            }
-            elseif($member)
-            {
-                $validator = Validator::make($request->all(),[
-                    'email' => 'required|unique:candidates'
-                ]);
-    
-                if($validator->fails()){
-                    toastr()->error('Email Address  already exists');
-                    return redirect()->back();
-                }
-                Candidate::create([
-                        'code' => uniqid(),
-                        'mrefer_by' => $member->id
-                    ]+$request->all());
-            }
-        }else{
-           $validator = Validator::make($request->all(),[
-                'email' => 'required|unique:candidates'
-            ]);
-
-            if($validator->fails()){
-                toastr()->error('Email Address  already exists');
-                return redirect()->back();
-            }
-            Candidate::create([
-                'code' => uniqid()
-            ]+$request->all());
-            
+        if($validator->fails()){
+            toastr()->error('Email Address  already exists');
+            return redirect()->back();
         }
+        Candidate::create($request->all());
         toastr()->success('Your Account Has Been successfully Created, Please Login and See Next Step Guides.');
         return redirect(route('candidate.login'));
     }

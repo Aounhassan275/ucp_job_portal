@@ -26,10 +26,7 @@ class InstituteController extends Controller
     }
     public function active($id)
     {
-        $i_deposit = I_deposit::find($id);
-        $institute = $i_deposit->institute; 
-
-        // dd($deposit);
+        $institute = Institute::find($id);
         $institute->update([
             'status' => 'active',
             'a_date' => Carbon::today()

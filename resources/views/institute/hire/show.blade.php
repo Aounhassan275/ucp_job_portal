@@ -82,6 +82,18 @@
                             <form action="#">
                                 <div class="form-group">
                                     <div class="row">
+                                        <div class="col-md-6">
+                                            <label>Interview Time:</label>
+                                            <input type="text" class="form-control" value="{{@$hire->time}}">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label>Interview Date:</label>
+                                            <input type="text" class="form-control" value="{{@$hire->date}}" name="date" required>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <label>Interview Joining Link:</label>
+                                            <input type="text" class="form-control" value="{{@$hire->link}}" name="link" required>
+                                        </div>
                                         <div class="col-md-12">
                                             <label>Description</label>
                                             <textarea name="" id="" readonly="readonly"  class="form-control" cols="30" rows="10">{{$hire->description}}</textarea>

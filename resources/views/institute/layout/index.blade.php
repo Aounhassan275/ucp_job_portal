@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<title>{{Auth::user()->name}} | INSTITUTE PANEL | JOB PORTAL</title>
+	<title>INSTITUTE PANEL | JOB PORTAL</title>
 
 	<!-- Global stylesheets -->
 	<link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css">
@@ -16,6 +16,7 @@
 	<link href="{{asset('assets/css/colors.min.css')}}" rel="stylesheet" type="text/css">
 	<link href="{{asset('assets/css/toastr.css')}}" rel="stylesheet" type="text/css">
 	<!-- /global stylesheets -->
+	
 
 	<!-- Core JS files -->
 	<script src="{{asset('global_assets/js/main/jquery.min.js')}}"></script>
@@ -49,8 +50,6 @@
 	<!-- Theme JS files -->
 	<script src="{{asset('global_assets/js/plugins/editors/summernote/summernote.min.js')}}"></script>
 	<script src="{{asset('global_assets/js/demo_pages/editor_summernote.js')}}"></script>
-	<script src="{{asset('global_assets/js/demo_pages/job_list.js')}}"></script>
-
 	<!-- /theme JS files -->
 
 	@yield('styles')
@@ -61,8 +60,8 @@
 	<!-- Main navbar -->
 	<div class="navbar navbar-expand-md navbar-dark">
 		<div class="navbar-brand">
-		    	<a href="{{url('/')}}" class="text-light">
-				<h3 class="m-0"><b>Institute Panel Menu</h3>
+			<a href="{{url('/')}}" class="text-light">
+				<h1 class="m-0"><b>INSTITUTE PANEL MENU</b></h1>
     <!--            <img src="{{asset('2.jpeg')}}" style="width: 207px;-->
     <!--height: 46px;" alt="">-->
 			</a>
@@ -89,9 +88,12 @@
 			<span class="badge bg-success ml-md-3 mr-md-auto">Online</span>
 
 			<ul class="navbar-nav">
+
+
+
 				<li class="nav-item dropdown dropdown-user">
 					<a href="" class="navbar-nav-link d-flex align-items-center dropdown-toggle" data-toggle="dropdown">
-						<img src="" class="rounded-circle mr-2" height="34" alt="">
+						<img src="{{asset(Auth::user()->image)}}" class="rounded-circle mr-2" height="34" alt="">
 						<span>{{Auth::user()->name}}</span>
 					</a>
 
@@ -133,19 +135,17 @@
 					<div class="card-body">
 						<div class="media">
 							<div class="mr-3">
-								<a href="{{asset(Auth::user()->image)}}"><img src="{{asset(Auth::user()->image)}}" width="38" height="38" class="rounded-circle" alt=""></a>
+								<a href="#"><img src="{{asset(Auth::user()->image)}}" width="38" height="38" class="rounded-circle" alt=""></a>
 							</div>
 
 							<div class="media-body">
-								<a href="{{route('institute.profile.show')}}">
-									<div class="media-title font-weight-semibold">{{Auth::user()->name}}</div>
-								</a>
+							<div class="media-title font-weight-semibold">{{Auth::user()->name}}</div>
 								<div class="font-size-xs opacity-50">Inc.
 								</div>
 							</div>
 
 							<div class="ml-3 align-self-center">
-								<a href="{{route('institute.profile.index')}}" class="text-white"><i class="icon-cog3"></i></a>
+								<a href="#" class="text-white"><i class="icon-cog3"></i></a>
 							</div>
 						</div>
 					</div>
@@ -156,92 +156,63 @@
 				<!-- Main navigation -->
 				<div class="card card-sidebar-mobile">
 					<ul class="nav nav-sidebar" data-nav-type="accordion">
-						{{-- @if (Auth::user()->type == '1') --}}
+					    
 							<!-- Main -->
-						<li class="nav-item-header"><div class="text-uppercase font-size-xs line-height-xs">Institute Panel</div> <i class="icon-menu" title="Main"></i></li>
+						<li class="nav-item-header"><div class="text-uppercase font-size-xs line-height-xs">Admin Panel</div> <i class="icon-menu" title="Main"></i></li>
 						<li class="nav-item">
-							<a href="{{route('institute.dashboard.index')}}" class="nav-link {{Request::is('institute.dashboard.index')?'active':''}}">
-								<i class="icon-home4"></i>
-								<span>Dashboard</span>
-							</a>
-						</li>
-						@if (Auth::user()->checkstatus() =='expired')
+                            <a href="{{route('institute.dashboard.index')}}" class="nav-link {{Request::is('institute.dashboard.index')?'active':''}}">
+                                <i class="icon-home4"></i>
+                                <span>Dashboard</span>
+                            </a>
+                        </li>
 
-						@else
-						<li class="nav-item">
-							<a href="{{route('institute.job.browse_job')}}" class="nav-link {{Request::is('candidate.job.browse_job')?'active':''}}">
-								<i class="icon-folder-plus"></i>
-								<span>Browse Job</span>
-							</a>
-						</li>	
-						<li class="nav-item">
-							<a href="{{route('institute.candidate.index')}}" class="nav-link {{Request::is('institute.candidate.index')?'active':''}}">
-								<i class="icon-folder-plus"></i>
-								<span>Browse Candidate</span>
-							</a>
-						</li>
-						<li class="nav-item">
-							<a href="{{route('institute.hire.index')}}" class="nav-link {{Request::is('institute.candidate.index')?'active':''}}">
-								<i class="icon-folder-plus"></i>
-								<span>Candidate Hire Request</span>
-								<span class="badge bg-success-400 align-self-center ml-auto">{{Auth::user()->hire()}}</span>
-							</a>
-						</li>
-						<li class="nav-item">
-							<a href="{{route('institute.applicant.index')}}" class="nav-link {{Request::is('institute.candidate.index')?'active':''}}">
-								<i class="icon-folder-plus"></i>
-								<span>Candidate Application Request</span>
-							</a>
-						</li>
-						<li class="nav-item">
-							<a href="{{route('institute.job.create')}}" class="nav-link {{Request::is('institute.job.create')?'active':''}}">
-								<i class="icon-user"></i>
-								<span>Create Job</span>
-							</a>
-						</li>	
-						<li class="nav-item">
-							<a href="{{route('institute.job.index')}}" class="nav-link {{Request::is('institute.job.index')?'active':''}}">
-								<i class="icon-user"></i>
-								<span>Manage Job</span>
-							</a>
-						</li>		
-						@endif
-						<li class="nav-item">
-							<a href="{{route('institute.i_withdraw.create')}}" class="nav-link {{Request::is('institute.i_withdraw.create')?'active':''}}">
-								<i class="icon-stack2"></i>
-								<span>Create Withdraw</span>
-							</a>
-						</li>
-						<li class="nav-item">
-							<a href="{{route('institute.i_withdraw.index')}}" class="nav-link {{Request::is('institute.i_withdraw.index')?'active':''}}">
-								<i class="icon-mail-read"></i>
-								<span>Withdraw History</span>
-							</a>
-						</li>
-						<li class="nav-item">
-							<a href="{{route('institute.refer.index')}}" class="nav-link {{Request::is('institute.refer.index')?'active':''}}">
-								<i class="icon-user"></i>
-								<span>Refer</span>
-							</a>
-						</li>	
-						@if(Auth::user()->a_date)
+                        <li class="nav-item">
+                            <a href="{{route('institute.job.browse_job')}}" class="nav-link {{Request::is('candidate.job.browse_job')?'active':''}}">
+                                <i class="icon-folder-plus"></i>
+                                <span>Browse Job</span>
+                            </a>
+                        </li>   
+                        <li class="nav-item">
+                            <a href="{{route('institute.candidate.index')}}" class="nav-link {{Request::is('institute.candidate.index')?'active':''}}">
+                                <i class="icon-folder-plus"></i>
+                                <span>Browse Candidate</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{route('institute.hire.index')}}" class="nav-link {{Request::is('institute.candidate.index')?'active':''}}">
+                                <i class="icon-folder-plus"></i>
+                                <span>Candidate Hire Request</span>
+                                <span class="badge bg-success-400 align-self-center ml-auto">{{Auth::user()->hire()}}</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{route('institute.applicant.index')}}" class="nav-link {{Request::is('institute.candidate.index')?'active':''}}">
+                                <i class="icon-folder-plus"></i>
+                                <span>Candidate Application Request</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{route('institute.job.create')}}" class="nav-link {{Request::is('institute.job.create')?'active':''}}">
+                                <i class="icon-user"></i>
+                                <span>Create Job</span>
+                            </a>
+                        </li>   
+                        <li class="nav-item">
+                            <a href="{{route('institute.job.index')}}" class="nav-link {{Request::is('institute.job.index')?'active':''}}">
+                                <i class="icon-user"></i>
+                                <span>Manage Job</span>
+                            </a>
+                        </li>   
+                        <li class="nav-item">
+                            <a href="{{route('institute.profile.index')}}" class="nav-link {{Request::is('institute.profile.index')?'active':''}}">
+                                <i class="icon-stack3"></i>
+                                <span>Account Setting</span>
+                            </a>
+                        </li>
+
 						
-						@else 
-						<li class="nav-item">
-							<a href="{{route('institute.i_deposit.create')}}" class="nav-link {{Request::is('institute.i_deposit.create')?'active':''}}">
-								<i class="icon-stack3"></i>
-								<span>Register Yourself</span>
-							</a>
-						</li>
-						@endif
-						<li class="nav-item">
-							<a href="{{route('institute.profile.index')}}" class="nav-link {{Request::is('institute.profile.index')?'active':''}}">
-								<i class="icon-stack3"></i>
-								<span>Account Setting</span>
-							</a>
-						</li>
-					
-					</ul>
+						<!-- /page kits -->
+										</ul>
 				</div>
 				<!-- /main navigation -->
 
@@ -259,7 +230,7 @@
 			<div class="page-header page-header-light">
 				<div class="page-header-content header-elements-md-inline">
 					<div class="page-title d-flex">
-						<h4><a href="{{route('institute.dashboard.index')}}"><i class="icon-arrow-left52 mr-2"></i></a> <span class="font-weight-semibold">@yield('title')</span></h4>
+					<h4><a href="{{route('admin.dashboard.index')}}"><i class="icon-arrow-left52 mr-2"></i></a> <span class="font-weight-semibold">@yield('title')</span></h4>
 						<a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
 					</div>
 
@@ -278,6 +249,7 @@
 
 			<!-- Content area -->
 			<div class="content">
+
 				@yield('content')
 
 			</div>

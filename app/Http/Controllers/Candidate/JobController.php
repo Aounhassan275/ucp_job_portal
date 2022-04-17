@@ -12,21 +12,13 @@ class JobController extends Controller
     public function detail($id)
     {
       $job = Job::find($id);
-    //   dd($candidate);
-
       return view('candidate.job.show',compact('job'));
     }
     public function show()
     {
       $candidate = Auth::user();
-      $deposits = $candidate->deposits;
-      $jobs = [];
-      foreach($deposits as $key => $deposit){
-        $jobs = Job::where('category_id',$deposit->category2)->orWhere('category_id',$deposit->category1)->get();
-        
-      }
-
-      // dd($jobs);
+      $categories = $candidate->profiles->pluck('category_id');
+      $jobs = Job::whereIn('category_id',$categories)->get();
       return view('candidate.job.index')->with('jobs',$jobs);
     }
 }

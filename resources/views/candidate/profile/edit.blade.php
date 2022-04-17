@@ -115,16 +115,23 @@
                             <label for="">Passing Date</label>
                             <input type="date" maxlength="10" class="form-control" value="{{$profile->date}}"  minlength="10" name="p_date">
                         </div>
-                        {{-- <div class="form-group col-md-6">                 
-                            <label for="">Job Title</label>
-                            <input class="form-control" type="text" name="job_title" placeholder="" value="{{$profile->job_title}}" />    
-                        </div>    --}}
+                        <div class="form-group col-md-6">
+                            <label>Select Category</label>    
+                            <select data-placeholder="Category 'as'"  name="category_id" id="category-selector"   class="form-control select-minimum" data-fouc required>
+                                <option></option>
+                                <optgroup label="Top Categories">
+                                    @foreach(App\Models\Category::all() as $category)
+                                    <option   @if($profile->category_id == $category->id) selected @endif value="{{$category->id}}">{{$category->name}}</option>
+                              @endforeach
+                                </optgroup>
+                            </select>                                                  
+                        </div> 
                         <div class="form-group col-md-6">                 
                             <label for="">Description</label>
                             <textarea name="job_description" id="" cols="30" rows="2" class="form-control">{{$profile->job_description}}</textarea>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-primary">Create 
+                    <button type="submit" class="btn btn-primary">Update 
                         <i class="icon-plus22 ml-2"></i>
                     </button>
                 </form>

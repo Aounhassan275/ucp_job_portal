@@ -16,6 +16,10 @@ class CreateHiresTable extends Migration
         Schema::create('hires', function (Blueprint $table) {
             $table->id();
             $table->text('description');
+            $table->text('objection')->nullable();
+            $table->time('time');
+            $table->date('date');
+            $table->string('link');
             $table->string('status')->default("No Response");
             $table->unsignedBigInteger('job_id')->nullable();
             $table->foreign('job_id')->references('id')->on('jobs')->onDelete('cascade');

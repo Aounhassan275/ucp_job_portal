@@ -20,25 +20,17 @@ class PageController extends Controller
         $jobs = Job::orderby('created_at','desc')->get();
         return view('front.job.jobs',compact('jobs'));
     }
-    public function addCode()
-    {
-        $members = Member::all();
-        foreach($members as $member)
-        {
-            if($member->code == null)
-            {
-                $member->update([
-                    'code' => uniqid(),
-                ]);
-            }
-        }
-        return $members;
-    }
      public function showJobnext($title)
     {
         $job=Job::where('title',str_replace('_', ' ',$title))->first();
         $id = $job->id;
         $job=Job::find($id);
+        if($job)
+        {
+            $job->update([
+                'view' => $job->view +1,
+            ]);
+        }
         return view('front.job.show',compact('job'));
     }
     public function showCandidatenext($name)
@@ -101,8 +93,6 @@ class PageController extends Controller
     }
        public function search(Request $request)
          {
-        if($request->category == '1')
-        {
             if($request->keyword && $request->location){
                     $this->jobs = Job::where('location','Like', '%'.$request->location.'%')
                             ->Where('title', 'LIKE', '%' . $request->keyword . '%')->distinct()->get();
@@ -122,96 +112,13 @@ class PageController extends Controller
             
             $keyword = $request->keyword?$request->keyword:'';
             $location = $request->location?$request->location:'';
-            $category = $request->category?$request->category:'1';
 
 
             // dd($this->jobs);
             return view('front.job.index')
                 ->with('Keyword', $keyword)
                 ->with('Location', $location)
-                ->with('Category', $category)
                 ->with('jobs', $this->jobs);
-
-        }
-        elseif($request->category == '2')
-        {
-            if($request->keyword && $request->location){
-                
-                    $this->profiles = Profile::where('address','Like', '%'.$request->location.'%')
-                            ->Where('professional', 'LIKE', '%' . $request->keyword . '%')->distinct()->get();
-            }
-        
-            else if($request->location){
-
-                    $this->profiles = Profile::where('address','Like', '%'.$request->location.'%')->distinct()->get();
-            }
-        
-            else if($request->keyword){
-                        $this->profiles = Profile::Where('professional', 'LIKE', '%' . $request->keyword . '%')
-                        ->distinct()->get();
-            }
-        
-            else if($request->has('category')){
-                if($request->category == '1')
-                    $this->profiles = Profile::all();
-                elseif($request->category == '2')
-                $this->profiles = Profile::all();
-                else
-                $this->profiles = Profile::all();
-
-            }
-
-            else
-                $this->profiles = Profile::all();
-            
-            
-            $keyword = $request->keyword?$request->keyword:'';
-            $location = $request->location?$request->location:'';
-            $category = $request->category?$request->category:'2';
-
-
-            // dd($this->jobs);
-            return view('front.job.index')
-                ->with('Keyword', $keyword)
-                ->with('Location', $location)
-                ->with('Category', $category)
-                ->with('profiles', $this->profiles);
-
-        }
-        else if($request->category == '3')
-        {
-            $services = Service::where('address', ':;^')->get();
-            
-            if($request->keyword && $request->location){
-                $services = Service::where('address', 'LIKE', '%'.$request->location.'%')->get();
-            }
-            if($request->keyword){
-                $skills = Skill::where('name', 'LIKE', '%'.$request->keyword.'%')->get();
-                foreach ($skills as $key => $skill) {
-                    $deposits = S_deposit::where('skill_id', $skill->id)->get();                        
-                    foreach ($deposits as $key => $deposit) {
-                        $services->push($deposit->service);
-                    }                        
-                }
-            }
-
-            else
-                $services = Service::all();
-            
-            
-            $keyword = $request->keyword?$request->keyword:'';
-            $location = $request->location?$request->location:'';
-            $category = $request->category?$request->category:'3';
-
-
-            // dd($this->jobs);
-            return view('front.job.index')
-                ->with('Keyword', $keyword)
-                ->with('Location', $location)
-                ->with('Category', $category)
-                ->with('services', $services);
-
-        }
 
     }
 }

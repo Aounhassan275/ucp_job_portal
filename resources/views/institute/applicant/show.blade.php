@@ -197,10 +197,7 @@
                                 <li class="list-inline-item">{{$applicant->job->salary}}</li>
                                 <li class="list-inline-item">{{$applicant->job->category->name}}</li>
                                 <li class="list-inline-item">{{$applicant->job->institute->name}}</li>
-                                @if($applicant->job->member)
-                                <li class="list-inline-item">Created By:{{$applicant->job->member->name}}    
-                                </li>
-                                @endif
+                      
                                 <li class="list-inline-item">
                                     @if($applicant->job->status=="Approved")
                                     <span class="badge badge-success">{{$applicant->job->status}}</span>
@@ -328,7 +325,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Create Candidate</h5>
+                <h5 class="modal-title">Hire Candidate</h5>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
 
@@ -337,6 +334,18 @@
                 <div class="modal-body">
                     <div class="form-group">
                         <div class="row">
+                            <div class="col-sm-6">
+                                <label>Interview Time:</label>
+                                <input type="time" class="form-control" name="time" required>
+                            </div>
+                            <div class="col-sm-6">
+                                <label>Interview Date:</label>
+                                <input type="date" class="form-control" name="date" required>
+                            </div>
+                            <div class="col-sm-12">
+                                <label>Interview Joining Link:</label>
+                                <input type="text" class="form-control" name="link" required>
+                            </div>
                             <div class="col-sm-12">
                                 <label>Description:</label>
                                 <textarea name="description" class="form-control" id="" cols="30" rows="4" required></textarea>                            

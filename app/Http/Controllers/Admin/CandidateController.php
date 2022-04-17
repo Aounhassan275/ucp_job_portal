@@ -31,19 +31,6 @@ class CandidateController extends Controller
     }
         public function actives($id)
     {
-        $deposit = Deposit::find($id);
-        $profile = $deposit->profile; 
-        $candidate = $deposit->candidate; 
-        $profile->update([
-            'profile' => 'Approved',
-            'a_date' => Carbon::today()
-        ]);   
-        $deposit->update([
-            'status' => 'Active',
-        ]);   
-         $candidate->update([
-            'status' => 'active',
-        ]);
         toastr()->success('Profile is Active Now');
         return redirect()->back();
     }
@@ -71,11 +58,6 @@ class CandidateController extends Controller
     {
       $candidate = Candidate::find($id);
       return view('admin.profile.index',compact('candidate'));
-    }
-    public function deposit($id)
-    {
-      $deposit = Deposit::find($id);
-      return view('admin.deposit.detail',compact('deposit'));
     }
     public function showProfile($id)
     {

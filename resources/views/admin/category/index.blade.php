@@ -27,10 +27,6 @@
                             <label>Enter Category Name</label>
                             <input type="text" name="name" placeholder="Enter Category Name" class="form-control" required>
                         </div>   
-                        <div class="form-group col-md-6">
-                            <label>Enter Category Price</label>
-                            <input type="number" name="price" placeholder="Enter Category Price" class="form-control" required>
-                        </div>
                     </div>
                     <button type="submit" class="btn btn-primary">Create 
                         <i class="icon-plus22 ml-2"></i>
@@ -50,7 +46,6 @@
             <tr>
                 <th>#</th>
                 <th>Category</th>
-                <th>Price</th>
                 <th>Action</th>
                 <th>Action</th>
             </tr>
@@ -60,9 +55,8 @@
             <tr>
                 <td>{{$key+1}}</td>
                 <td>{{$category->name}}</td>
-                <td>{{$category->price}}</td>
                 <td>
-                    <button data-toggle="modal" data-target="#edit_modal" name="{{$category->name}}" price="{{$category->price}}"
+                    <button data-toggle="modal" data-target="#edit_modal" name="{{$category->name}}" 
                             id="{{$category->id}}" class="edit-btn btn btn-primary">Edit</button>
                     </td>
                 <td>
@@ -94,10 +88,6 @@
                         <label for="title">Category Name</label>
                         <input class="form-control" type="text" id="name" name="name"  required>
                     </div>
-                    <div class="form-group">
-                        <label for="title">Category Price</label>
-                        <input class="form-control" type="number" id="price" name="price"  required>
-                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">Cancel</button>
@@ -112,10 +102,8 @@
 <script>
     $(document).ready(function(){
         $('.edit-btn').click(function(){
-            let price = this.price;
             let name = this.name;
             let id = $(this).attr('id');
-            $('#price').val(price);
             $('#name').val(name);
             $('#id').val(id);
             $('#updateForm').attr('action','{{route('admin.category.update','')}}' +'/'+id);

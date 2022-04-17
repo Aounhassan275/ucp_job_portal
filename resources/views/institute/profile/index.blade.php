@@ -55,7 +55,7 @@
                                 <input type="text" name="address"  class="form-control " value="{{Auth::user()->address}}" >
                             </div>
                        </div>
-                    <button type="submit" class="btn btn-primary">Create 
+                    <button type="submit" class="btn btn-primary">Update 
                         <i class="icon-plus22 ml-2"></i>
                     </button>
                 </form>

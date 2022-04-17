@@ -33,10 +33,6 @@
                 @endif
                 <li class="list-inline-item">{{$job->category->name}}</li>
                 <li class="list-inline-item">{{$job->institute->name}}</li>
-                @if($job->member)
-                <li class="list-inline-item">Created By:{{$job->member->name}}    
-                </li>
-                @endif
                 <li class="list-inline-item">
                     @if($job->status=="Approved")
                     <span class="badge badge-success">{{$job->status}}</span>

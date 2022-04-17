@@ -42,7 +42,7 @@ class ProfileController extends Controller
     {
         $profile = Profile::create($request->all());   
         toastr()->success('Profile Created Successfully');
-        return redirect()->route('candidate.deposit.show',$profile->id);
+        return redirect()->route('candidate.profile.edit',$profile->id);
     }
 
     /**

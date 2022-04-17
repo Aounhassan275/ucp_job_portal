@@ -17,12 +17,71 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="row">
+                            <div class="col-xl-12">
+                                <!-- form -->
+                                <form action="{{url('search')}}" method="GET" class="search-box">
+                                    <div class="input-form col-4">
+                                        <input type="text" name="keyword" placeholder="Job Title or keyword">
+                                    </div>
+                                    <div class="input-form col-4">
+                                        <input type="text" name="location" placeholder="Location ">
+                                    </div>
+                                    <div class="input-form col-4">
+                                        <button type="submit" class="btn btn-primary"> Find job</button>
+                                    </div>	
+                                </form>	
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
         <!-- Blog Area End -->
         <!-- slider Area End-->
+        
+        <section class="featured-job-area feature-padding">
+            <div class="container">
+                <!-- Section Tittle -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="section-tittle text-center">
+                            <h2>Trending Jobs</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-xl-10">
+                        <!-- single-job-content -->
+                        @foreach (App\Models\Job::orderby('view','desc')->get()->take(6) as $key => $job)
+                        <div class="single-job-items mb-30">
+                            <div class="job-items">
+                                <div class="company-img">
+                                    <a href="{{url('job',str_replace(' ', '_',$job->title))}}"><img src="{{asset($job->institute->image)}}" style="    width: auto;
+                                        height: 115px;"  alt=""></a>
+                                </div>
+                                <div class="job-tittle">
+                                    <a href="{{url('job',str_replace(' ', '_',$job->title))}}"><h4>{{$job->title}}</h4></a>
+                                    <ul>
+                                        <li>{{$job->qualification}}</li>
+                                        <li><i class="fas fa-map-marker-alt"></i>{{$job->city}}</li>
+                                        @if($job->salary)
+                                        <li>{{$job->salary}}</li>
+                                        @else 
+                                        <li>{{$job->salary1}}</li>
+                                        @endif
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="items-link f-right">
+                                <a href="{{url('job',str_replace(' ', '_',$job->title))}}">{{$job->type}}</a>
+                            </div>
+                        </div>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+        </section>
         <!-- Our Services Start -->
         <div class="our-services section-pad-t30">
             <div class="container">
@@ -59,9 +118,9 @@
                 <div class="row justify-content-center">
                     <div class="col-xl-10">
                         <div class="cv-caption text-center">
-                            <p class="pera1">FEATURED TOURS Packages</p>
-                            <p class="pera2"> Make a Difference with Your Online Resume!</p>
-                            <a href="{{url('signup_login')}}" class="border-btn2 border-btn4">Upload your cv</a>
+                            <p class="pera1">FEATURED New Jobs</p>
+                            <p class="pera2"> Make a CV with Your Online!</p>
+                            <a href="{{url('candidate/login')}}" class="border-btn2 border-btn4">Post CV</a>
                         </div>
                     </div>
                 </div>
@@ -164,70 +223,6 @@
              </div>
         </div>
         <!-- How  Apply Process End-->
-        <!-- Testimonial Start -->
-        <div class="testimonial-area testimonial-padding">
-            <div class="container">
-                <!-- Testimonial contents -->
-                <div class="row d-flex justify-content-center">
-                    <div class="col-xl-8 col-lg-8 col-md-10">
-                        <div class="h1-testimonial-active dot-style">
-                            <!-- Single Testimonial -->
-                            <div class="single-testimonial text-center">
-                                <!-- Testimonial Content -->
-                                <div class="testimonial-caption ">
-                                    <!-- founder -->
-                                    <div class="testimonial-founder  ">
-                                        <div class="founder-img mb-30">
-                                            <img src="{{asset('front/assets/img/testmonial/testimonial-founder.png')}}" alt="">
-                                            <span>Margaret Lawson</span>
-                                            <p>Creative Director</p>
-                                        </div>
-                                    </div>
-                                    <div class="testimonial-top-cap">
-                                        <p>“I am at an age where I just want to be fit and healthy our bodies are our responsibility! So start caring for your body and it will care for you. Eat clean it will care for you and workout hard.”</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Single Testimonial -->
-                            <div class="single-testimonial text-center">
-                                <!-- Testimonial Content -->
-                                <div class="testimonial-caption ">
-                                    <!-- founder -->
-                                    <div class="testimonial-founder  ">
-                                        <div class="founder-img mb-30">
-                                            <img src="{{asset('front/assets/img/testmonial/testimonial-founder.png')}}" alt="">
-                                            <span>Margaret Lawson</span>
-                                            <p>Creative Director</p>
-                                        </div>
-                                    </div>
-                                    <div class="testimonial-top-cap">
-                                        <p>“I am at an age where I just want to be fit and healthy our bodies are our responsibility! So start caring for your body and it will care for you. Eat clean it will care for you and workout hard.”</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Single Testimonial -->
-                            <div class="single-testimonial text-center">
-                                <!-- Testimonial Content -->
-                                <div class="testimonial-caption ">
-                                    <!-- founder -->
-                                    <div class="testimonial-founder  ">
-                                        <div class="founder-img mb-30">
-                                            <img src="{{asset('front/assets/img/testmonial/testimonial-founder.png')}}" alt="">
-                                            <span>Margaret Lawson</span>
-                                            <p>Creative Director</p>
-                                        </div>
-                                    </div>
-                                    <div class="testimonial-top-cap">
-                                        <p>“I am at an age where I just want to be fit and healthy our bodies are our responsibility! So start caring for your body and it will care for you. Eat clean it will care for you and workout hard.”</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Testimonial End -->
          <!-- Support Company Start-->
          <div class="support-company-area support-padding fix">
             <div class="container">
@@ -240,8 +235,6 @@
                                 <h2>24k Talented people are getting Jobs</h2>
                             </div>
                             <div class="support-caption">
-                                <p class="pera-top">Mollit anim laborum duis au dolor in voluptate velit ess cillum dolore eu lore dsu quality mollit anim laborumuis au dolor in voluptate velit cillum.</p>
-                                <p>Mollit anim laborum.Duis aute irufg dhjkolohr in re voluptate velit esscillumlore eu quife nrulla parihatur. Excghcepteur signjnt occa cupidatat non inulpadeserunt mollit aboru. temnthp incididbnt ut labore mollit anim laborum suis aute.</p>
                                 <a href="{{url('institute/login')}}" class="btn post-btn">Post a job</a>
                             </div>
                         </div>

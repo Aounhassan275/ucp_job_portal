@@ -36,6 +36,8 @@ class CreateProfilesTable extends Migration
             $table->text('job_description')->nullable();
             $table->unsignedBigInteger('candidate_id')->nullable();
             $table->foreign('candidate_id')->references('id')->on('candidates')->onDelete('cascade');
+            $table->unsignedBigInteger('category_id')->nullable();
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
             $table->timestamps();
         });
     }

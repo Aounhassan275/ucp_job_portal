@@ -80,20 +80,9 @@
 								</div>
 							</div>
 
-							<div class="form-group d-flex align-items-center">
-						         <a href="{{route('admin.reset')}}" class="ml-auto">Forgot password?</a>
-							</div>
-
 							<div class="form-group">
 								<button type="submit" class="btn btn-primary btn-block">Sign in <i class="icon-circle-right2 ml-2"></i></button>
 							</div>
-
-							{{-- <div class="form-group text-center">
-								<button type="button" class="btn btn-outline bg-indigo border-indigo text-indigo btn-icon rounded-round border-2"><i class="icon-facebook"></i></button>
-								<button type="button" class="btn btn-outline bg-pink-300 border-pink-300 text-pink-300 btn-icon rounded-round border-2 ml-2"><i class="icon-dribbble3"></i></button>
-								<button type="button" class="btn btn-outline bg-slate-600 border-slate-600 text-slate-600 btn-icon rounded-round border-2 ml-2"><i class="icon-github"></i></button>
-								<button type="button" class="btn btn-outline bg-info border-info text-info btn-icon rounded-round border-2 ml-2"><i class="icon-twitter"></i></button>
-							</div> --}}
 
 							<span class="form-text text-center text-muted">By continuing, you're confirming that you've read our <a href="#">Terms &amp; Conditions</a> and <a href="#">Cookie Policy</a></span>
 							<a href="{{url('/')}}"  class="btn btn-primary btn-block">Go Back To Website <i class="icon-circle-right2 ml-2"></i></a>

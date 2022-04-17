@@ -32,30 +32,6 @@
             </div>
         </a>
 	</div>
-    <div class="col-sm-6 col-xl-6">
-        <a href="{{route('candidate.c_withdraw.index')}}">
-            <div class="card card-body bg-purple-400 has-bg-image">
-                <div class="media">
-                    <div class="media-body"> 
-                    <h3 class="mb-0">{{Auth::user()->c_withdraws->count()}}</h3>
-                        <span class="text-uppercase font-size-xs">Withdraw History</span>
-                    </div>
-                </div>
-            </div>
-        </a>
-    </div>
-    <div class="col-sm-6 col-xl-6">
-        <a href="{{route('candidate.refer.index')}}">
-            <div class="card card-body bg-success-400 has-bg-image">
-                <div class="media">
-                    <div class="media-body">
-                    <h3 class="mb-0">PKR {{number_format(Auth::user()->balance, 2)}}</h3>
-                        <span class="text-uppercase font-size-xs">Balance</span>
-                    </div>
-                    </div>
-            </div>
-        </a>
-    </div>
    <div class="col-sm-6 col-xl-6">
         <a href="{{route('candidate.hire.index')}}">
             <div class="card card-body bg-teal-400 has-bg-image">

@@ -49,7 +49,8 @@
                         <div class="col-lg-3 col-md-2">
                             <!-- Logo -->
                             <div class="logo">
-                                <a href="{{url('/')}}"><img src="{{asset('front/assets/img/logo/logo.png')}}" alt=""></a>
+                                <a href="{{url('/')}}">
+                                    <img src="{{asset('front/assets/img/logo/logo.png')}}" alt=""></a>
                             </div>  
                         </div>
                         <div class="col-lg-9 col-md-9">
@@ -80,7 +81,7 @@
                                 </div>          
                                 <!-- Header-btn -->
                                 <div class="header-btn d-none f-right d-lg-block">
-                                    <a href="{{url("candidate/login")}}" class="btn head-btn1">Candidate Login</a>
+                                    <a href="{{url("candidate/login")}}" class="btn head-btn2">Candidate Login</a>
                                     <a href="{{url("institute/login")}}" class="btn head-btn2">Institue Login</a>
                                 </div>
                             </div>
@@ -111,7 +112,7 @@
                              <div class="footer-tittle">
                                  <h4>About Us</h4>
                                  <div class="footer-pera">
-                                     <p>Heaven frucvitful doesn't cover lesser dvsays appear creeping seasons so behold.</p>
+                                     <p>We are providing plateform To Candidate & Institute.</p>
                                 </div>
                              </div>
                          </div>
@@ -124,11 +125,10 @@
                                 <h4>Contact Info</h4>
                                 <ul>
                                     <li>
-                                    <p>Address :Your address goes
-                                        here, your demo address.</p>
+                                    <p>Address : University Road,Sargodha.</p>
                                     </li>
-                                    <li><a href="#">Phone : +8880 44338899</a></li>
-                                    <li><a href="#">Email : info@colorlib.com</a></li>
+                                    <li><a href="#">Phone : +923 000 0000000</a></li>
+                                    <li><a href="#">Email : dummy@mail.com</a></li>
                                 </ul>
                             </div>
 
@@ -204,7 +204,7 @@
                          <div class="col-xl-10 col-lg-10 ">
                              <div class="footer-copy-right">
                                  <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved
   <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
                              </div>
                          </div>

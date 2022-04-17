@@ -46,37 +46,6 @@
                         </div>
                         <!-- /navigation -->
 
-
-                        <!-- Online users -->
-                        <div class="card">
-                            <div class="card-header bg-transparent header-elements-inline">
-                                <span class="card-title font-weight-semibold">Package Deposit Request</span>
-                            </div>
-
-                            <div class="card-body">
-                                <ul class="media-list">
-                                    @foreach ($institute->i_deposits as $i_deposit)
-                                    <li class="media">
-                                        <a href="#" class="mr-3">
-                                            <img src="{{asset('global_assets/images/placeholders/placeholder.jpg')}}" width="36" height="36" class="rounded-circle" alt="">
-                                        </a>
-                                        <div class="media-body">
-                                            <a href="#" class="media-title font-weight-semibold">Amount: PKR{{$i_deposit->price}}</a>
-                                            <div class="font-size-sm text-muted">Transcation ID#{{$i_deposit->t_id}}</div>
-                                            <div class="font-size-sm text-muted">Payment Method: {{$i_deposit->payment}}</div>
-                                            <div class="font-size-sm text-muted">Date:{{ \Carbon\Carbon::parse($i_deposit->createdat)->format('d/m/Y')}}
-                                            </div>
-                                        </div>
-                                        <div class="ml-3 align-self-center">
-                                            <span class="badge badge-mark border-success"></span>
-                                        </div>
-                                    </li>
-                                    @endforeach
-                                  
-                                </ul>
-                            </div>
-                        </div>
-                        <!-- /online users -->
                     </div>
                     <!-- /sidebar content -->
 
