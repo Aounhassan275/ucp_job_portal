@@ -46,6 +46,11 @@
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group">
+                                        <input class="form-control" name="confirm_password" id="email" type="password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Confirm Password'" placeholder="Confirm Password">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
                                         <input class="form-control" name="address" id="address" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Address'" placeholder="Address">
                                     </div>
                                 </div>

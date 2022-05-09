@@ -5,29 +5,6 @@
 @endsection
 
 @section('content')
-@if(Auth::user()->status == 'active')
-		<div class="card">
-					<div class="card-body">
-						<h5 class="mb-3">Search Candidates</h5>
-
-						<form action="{{url('search/profile')}}" method="GET">
-							<div class="input-group mb-3">
-								<div class="form-group-feedback form-group-feedback-left">
-									<input type="text" class="form-control form-control-lg alpha-grey" name="keyword"  placeholder="Keyword">
-							
-								</div>
-								<div class="form-group-feedback form-group-feedback-left">
-									<input type="text" class="form-control form-control-lg alpha-grey" name="location"  placeholder="E.g.Sargodha,Punjab">
-								
-								</div>
-
-								<div class="input-group-append">
-									<button type="submit" class="btn btn-primary btn-lg">Search</button>
-								</div>
-							</div>
-						</form>
-					</div>
-				</div>
 <div class="row">
 	@foreach ($profiles as $key => $profile)
 	<div class="col-xl-3 col-sm-6">
@@ -67,22 +44,4 @@
 	</div>
 @endforeach
 </div>
-@else 
-<div class="row">
-	<div class="col-sm-12 col-xl-12">
-		<a href="{{route('institute.i_deposit.create')}}">
-			<div class="card card-body bg-blue-400 has-bg-image">
-				<div class="media">
-					<div class="media-body">
-					{{-- <h3 class="mb-0"></h3> --}}
-						<span class="text-uppercase ">     
-								Register Your Account Firstly To See Candidate Profile 
-						</span>
-					</div>
-				</div>
-		</div>
-		</a>
-	</div>
-</div>
-@endif
 @endsection

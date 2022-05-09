@@ -14,11 +14,12 @@ class AuthController extends Controller
             'email' => $request->email,
             'password' => $request->password
         ];
-        if(Auth::guard('admin')->attempt($creds))
-        {
+        if(Auth::guard('admin')->attempt($creds)){
+            
             toastr()->success('Admin Login Successfully');
             return redirect()->intended(url('admin/dashboard'));
         } else {
+            toastr()->error('Wrong Password','Please Contact Support');
             return redirect()->back();
         }
     }

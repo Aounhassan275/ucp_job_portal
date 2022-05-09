@@ -48,6 +48,11 @@ class CandidateController extends Controller
             toastr()->error('Email Address  already exists');
             return redirect()->back();
         }
+        if($request->password != $request->confirm_password)
+        {
+            toastr()->error('Password Not Match');
+            return redirect()->back();
+        }
         Candidate::create($request->all());
         toastr()->success('Your Account Has Been successfully Created, Please Login and See Next Step Guides.');
         return redirect(route('candidate.login'));

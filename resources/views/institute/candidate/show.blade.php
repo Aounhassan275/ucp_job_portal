@@ -192,7 +192,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Create Candidate</h5>
+                <h5 class="modal-title">Hire Candidate</h5>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
 
