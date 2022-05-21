@@ -158,7 +158,7 @@
 					<ul class="nav nav-sidebar" data-nav-type="accordion">
 					    
 							<!-- Main -->
-						<li class="nav-item-header"><div class="text-uppercase font-size-xs line-height-xs">Admin Panel</div> <i class="icon-menu" title="Main"></i></li>
+						<li class="nav-item-header"><div class="text-uppercase font-size-xs line-height-xs">Institute Panel</div> <i class="icon-menu" title="Main"></i></li>
 						<li class="nav-item">
                             <a href="{{route('institute.dashboard.index')}}" class="nav-link {{Request::is('institute.dashboard.index')?'active':''}}">
                                 <i class="icon-home4"></i>
@@ -230,7 +230,7 @@
 			<div class="page-header page-header-light">
 				<div class="page-header-content header-elements-md-inline">
 					<div class="page-title d-flex">
-					<h4><a href="{{route('admin.dashboard.index')}}"><i class="icon-arrow-left52 mr-2"></i></a> <span class="font-weight-semibold">@yield('title')</span></h4>
+					<h4><a href="{{route('institute.dashboard.index')}}"><i class="icon-arrow-left52 mr-2"></i></a> <span class="font-weight-semibold">@yield('title')</span></h4>
 						<a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
 					</div>
 

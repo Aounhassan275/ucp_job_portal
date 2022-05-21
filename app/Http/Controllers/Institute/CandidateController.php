@@ -19,7 +19,7 @@ class CandidateController extends Controller
     public function index()
     {
       $categories = Auth::user()->jobs->pluck('category_id');
-      $profiles = Profile::whereIn('category_id',$categories)->get();
+      $profiles = Profile::whereIn('category_id',$categories)->where('profile','Approved')->get();
       return view('institute.candidate.index')->with('profiles',$profiles);
     }
 }

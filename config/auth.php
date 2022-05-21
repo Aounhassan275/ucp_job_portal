@@ -52,17 +52,9 @@ return [
             'driver' => 'session',
             'provider' => 'candidates',
         ], 
-        'service' => [
-            'driver' => 'session',
-            'provider' => 'services',
-        ],
         'institute' => [
             'driver' => 'session',
             'provider' => 'institutes',
-        ],
-        'member' => [
-            'driver' => 'session',
-            'provider' => 'members',
         ],
 
         'api' => [
@@ -102,17 +94,9 @@ return [
             'driver' => 'eloquent',
             'model' => App\Models\Candidate::class,
         ], 
-        'services' => [
-            'driver' => 'eloquent',
-            'model' => App\Models\Service::class,
-        ],  
         'institutes' => [
             'driver' => 'eloquent',
             'model' => App\Models\Institute::class,
-        ],
-        'members' => [
-            'driver' => 'eloquent',
-            'model' => App\Models\Member::class,
         ],
         
 

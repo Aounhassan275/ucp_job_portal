@@ -5,46 +5,12 @@
 @endsection
 
 @section('content')
-@if($profile->a_date)
-<div class="row">
-    <div class="col-sm-6 col-xl-6">
-        <div class="card card-body">
-            <div class="media mb-3">
-                <div class="mr-3 align-self-center">
-                    <i class="icon-pulse2 icon-2x text-success-400 opacity-75"></i>
-                </div>
-
-                <div class="media-body">
-                    <h6 class="font-weight-semibold mb-0">Note:</h6>
-                        After {{(90-Carbon\Carbon::today()->diffInDays($profile->a_date))}}  Days your Subscription For Candidate Panel Got Expire.
-                </div>
-            </div>
-
-        </div>
-    </div>
-    <div class="col-sm-6 col-xl-6">
-        <a href="{{url('#')}}">
-            <div class="card card-body bg-success-400 has-bg-image">
-                <div class="media">
-                    <div class="media-body">
-                    <h3 class="mb-0">{{Carbon\Carbon::today()->diffInDays($profile->a_date)}}</h3>
-                        <span class="text-uppercase font-size-xs">Subscription Days</span>
-                    </div>
-                    <div class="ml-3 align-self-center">
-                        <i class="icon-coin icon-3x opacity-75"></i>
-                    </div>
-                </div>
-            </div>
-        </a>
-    </div>
-</div> 
-@endif
 <div class="row">
     <div class="col-md-12">
         <!-- Basic layout-->
         <div class="card">
             <div class="card-header header-elements-inline">
-                <h5 class="card-title">Add New Profile</h5>
+                <h5 class="card-title">Manage Profile</h5>
                 <div class="header-elements">
                     <div class="list-icons">
                         <a class="list-icons-item" data-action="collapse"></a>

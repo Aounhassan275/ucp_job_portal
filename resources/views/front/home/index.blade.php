@@ -1,6 +1,6 @@
 @extends('front.layout.index')
 @section('title')
-    <title>HOME | OTPL</title>
+    <title>HOME | JOB PORTAL</title>
 @endsection
 @section('contents')
     
@@ -265,7 +265,8 @@
                     </div>
                 </div>
                 <div class="row">
-                    @foreach (App\Models\Profile::orderby('created_at','desc')->get()->take(8) as $key => $profile)
+                    @foreach (App\Models\Profile::where('profile','Approved')->orderby('created_at','desc')->get()->take(8) as $key => $profile)
+                    @if($profile->candidate->status == 'active')
                     <div class="col-xl-6 col-lg-6 col-md-6">
                         <div class="home-blog-single mb-30">
                             <div class="blog-img-cap">
@@ -284,6 +285,7 @@
                             </div>
                         </div>
                     </div>
+                    @endif
                     @endforeach
                 </div>
             </div>

@@ -8,6 +8,7 @@
 
 <div class="row">
         @foreach ($profiles as  $profile)
+		@if($profile->candidate->status == 'active')
 	<div class="col-xl-3 col-sm-6">
 		<div class="card bg-teal-400" style="background-image: url({{asset('global_assets/images/backgrounds/panel_bg.png')}}); background-size: contain;">
 			<div class="card-body text-center">
@@ -43,6 +44,7 @@
 			</div>
 		</div>
 	</div>
+	@endif
 @endforeach
 </div>
 @endsection
