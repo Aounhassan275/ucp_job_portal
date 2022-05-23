@@ -11,7 +11,7 @@
             <div class="card card-body bg-teal-400 has-bg-image">
                 <div class="media">
                     <div class="media-body">
-                    <h3 class="mb-0">{{App\Models\Job::all()->count()}}</h3>
+                    <h3 class="mb-0">{{App\Models\Job::where('status','Approved')->count()}}</h3>
                         <span class="text-uppercase font-size-xs">Browse Jobs</span>
                     </div>
                 </div>

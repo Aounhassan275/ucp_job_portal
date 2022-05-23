@@ -18,15 +18,6 @@ class JobController extends Controller
         toastr()->success('Job is Approved Now');
         return redirect()->back();
     }
-    public function block($id)
-    {
-        $job = Job::find($id);
-        $job->update([
-            'status' => 'block'
-        ]);     
-        toastr()->success('Job is blocked Now');
-        return redirect()->back();
-    }
     public function delete1($id)
     {
         $job = Job::find($id);

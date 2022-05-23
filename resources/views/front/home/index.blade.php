@@ -53,7 +53,7 @@
                 <div class="row justify-content-center">
                     <div class="col-xl-10">
                         <!-- single-job-content -->
-                        @foreach (App\Models\Job::orderby('view','desc')->get()->take(6) as $key => $job)
+                        @foreach (App\Models\Job::where('status','Approved')->orderby('view','desc')->get()->take(6) as $key => $job)
                         <div class="single-job-items mb-30">
                             <div class="job-items">
                                 <div class="company-img">
@@ -142,7 +142,7 @@
                 <div class="row justify-content-center">
                     <div class="col-xl-10">
                         <!-- single-job-content -->
-                        @foreach (App\Models\Job::orderby('created_at','desc')->get()->take(6) as $key => $job)
+                        @foreach (App\Models\Job::where('status','Approved')->orderby('created_at','desc')->get()->take(6) as $key => $job)
                         <div class="single-job-items mb-30">
                             <div class="job-items">
                                 <div class="company-img">

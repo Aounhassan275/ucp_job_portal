@@ -17,8 +17,8 @@ class JobController extends Controller
     public function show()
     {
       $candidate = Auth::user();
-      $categories = $candidate->profiles->pluck('category_id');
-      $jobs = Job::whereIn('category_id',$categories)->get();
+      $categories = $candidate->profiles->where('profile','Approved')->pluck('category_id');
+      $jobs = Job::whereIn('category_id',$categories)->where('status','Approved')->get();
       return view('candidate.job.index')->with('jobs',$jobs);
     }
 }

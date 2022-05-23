@@ -28,7 +28,7 @@
             </tr> 
         </thead>
         <tbody>
-            @foreach (App\Models\Job::all() as $key => $job)
+            @foreach (App\Models\Job::where('status','Approved')->get() as $key => $job)
 			<tr>
 				<td>{{$job->title}}</td>
 				<td>{{$job->type}}</td>

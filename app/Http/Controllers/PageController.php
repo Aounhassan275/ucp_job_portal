@@ -17,7 +17,7 @@ class PageController extends Controller
 {
      public function jobs()
     {
-        $jobs = Job::orderby('created_at','desc')->get();
+        $jobs = Job::where('status','Approved')->orderby('created_at','desc')->get();
         return view('front.job.jobs',compact('jobs'));
     }
      public function showJobnext($title)
@@ -95,19 +95,21 @@ class PageController extends Controller
          {
             if($request->keyword && $request->location){
                     $this->jobs = Job::where('location','Like', '%'.$request->location.'%')
-                            ->Where('title', 'LIKE', '%' . $request->keyword . '%')->distinct()->get();
+                            ->Where('title', 'LIKE', '%' . $request->keyword . '%')
+                            ->where('status','Approved')->distinct()->get();
             }
         
             else if($request->location){
-                    $this->jobs = Job::where('location','Like', '%'.$request->location.'%')->distinct()->get();
+                    $this->jobs = Job::where('location','Like', '%'.$request->location.'%')
+                    ->where('status','Approved')->distinct()->get();
             }
         
             else if($request->keyword){
-                    $this->jobs = Job::Where('title', 'LIKE', '%' . $request->keyword . '%')->distinct()->get();
+                    $this->jobs = Job::Where('title', 'LIKE', '%' . $request->keyword . '%')->where('status','Approved')->distinct()->get();
             }
 
             else
-                $this->jobs = Job::all();
+                $this->jobs = Job::where('status','Approved')->get();
             
             
             $keyword = $request->keyword?$request->keyword:'';

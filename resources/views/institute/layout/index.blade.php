@@ -182,7 +182,7 @@
                             <a href="{{route('institute.hire.index')}}" class="nav-link {{Request::is('institute.candidate.index')?'active':''}}">
                                 <i class="icon-folder-plus"></i>
                                 <span>Candidate Hire Request</span>
-                                <span class="badge bg-success-400 align-self-center ml-auto">{{Auth::user()->hire()}}</span>
+                                {{-- <span class="badge bg-success-400 align-self-center ml-auto">{{Auth::user()->hires->where('')}}</span> --}}
                             </a>
                         </li>
                         <li class="nav-item">
