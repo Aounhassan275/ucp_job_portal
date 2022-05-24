@@ -47,7 +47,6 @@
                             <div class="dropdown-menu dropdown-menu-right">
 
                                 <a href="{{route('admin.institute.detail',$institute->id)}}" class="dropdown-item"><i class="icon-file-excel"></i> View Detail</a>
-                                {{-- <a href="{{route('admin.service.delete',$s_deposit->id)}}" class="dropdown-item"><i class="icon-file-excel"></i> Delete</a> --}}
                             </div>
                         </div>
                     </div>

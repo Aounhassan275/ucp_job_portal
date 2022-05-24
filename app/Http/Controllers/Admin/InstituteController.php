@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\I_deposit;
 use App\Models\Institute;
 use Carbon\Carbon;
 use Illuminate\Http\Request;

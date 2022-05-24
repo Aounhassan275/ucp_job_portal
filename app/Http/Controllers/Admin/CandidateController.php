@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Candidate;
-use App\Models\Deposit;
 use App\Models\Profile;
 use Carbon\Carbon;
 use Illuminate\Http\Request;

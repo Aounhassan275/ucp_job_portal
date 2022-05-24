@@ -71,14 +71,6 @@ class Institute extends Authenticatable
     {
         return $this->hasMany('App\Models\Institute','refer_by');
     }
-    public function i_withdraws()
-    {
-        return $this->hasMany(I_withdraw::class);
-    }   
-    public function i_deposits()
-    {
-        return $this->hasMany(I_deposit::class);
-    }   
     public static function active(){
         return (new static)::where('status','active')->get();
     }

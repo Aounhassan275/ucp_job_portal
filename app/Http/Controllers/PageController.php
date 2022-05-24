@@ -5,11 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Blog;
 use App\Models\Category;
 use App\Models\Job;
-use App\Models\Member;
 use App\Models\Profile;
-use App\Models\S_deposit;
-use App\Models\Service;
-use App\Models\Skill;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Response;
 
@@ -40,14 +36,6 @@ class PageController extends Controller
         $profile=Profile::find($id);
         return view('front.candidate.show',compact('profile'));
     }
-    public function showServiceprovidernext($name)
-    {
-        $service=Service::where('name',str_replace('_', ' ',$name))->first();
-        $id = $service->id;
-        $service=Service::find($id);
-        $s_deposit=S_deposit::where('service_id',$id)->get();
-        return view('front.service_provider.show',compact('service','s_deposit'));
-    }
     public function showBlognext($title)
     {
         $blog=Blog::where('title',str_replace('_', ' ',$title))->first();
@@ -55,14 +43,6 @@ class PageController extends Controller
         $blog=Blog::find($id);
         return view('front.blog.show',compact('blog'));
     }  
-    public function showServicenext($name)
-    {
-            $skill=Skill::where('name',str_replace('_', ' ',$name))->first();
-            $id = $skill->id;
-            $skill=Skill::find($id);
-            $s_deposits=S_deposit::where('skill_id',$id)->get();
-            return view('front.service.show',compact('skill','s_deposits'));
-    }
     public function showCategorynext($name)
     {
             $category=Category::where('name',str_replace('_', ' ',$name))->first();
@@ -70,26 +50,6 @@ class PageController extends Controller
             $category=Category::find($id);
             $jobs=Job::where('category_id',$id)->get();
             return view('front.category.show',compact('category','jobs'));
-    }
-    public function getDownload()
-    {
-    
-        //PDF file is stored under project/public/download/info.pdf
-    
-        $file= public_path(). "/Form.pdf";
-    
-     
-    
-        $headers = array(
-    
-                  'Content-Type: application/pdf',
-    
-                );
-    
-     
-    
-        return Response::download($file, 'filename.pdf', $headers);
-    
     }
        public function search(Request $request)
          {

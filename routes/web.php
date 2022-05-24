@@ -40,8 +40,6 @@ Route::group(['prefix' => 'admin', 'as'=>'admin.'], function () {
     Route::resource('admin', 'AdminController');
     /******************CANDIDATE Profile ROUTES****************/
     Route::view('candidate', 'admin.candidate.index')->name('candidate.index');
-    Route::view('candidate/deposit', 'admin.deposit.index')->name('deposit.index');
-    Route::get('candidate/deposit/{id}', 'Admin\CandidateController@deposit')->name('deposit.detail');
     Route::view('candidate/profile', 'admin.profile.profile')->name('profile.profile');
     Route::get('candidate/approved/{id}', 'Admin\CandidateController@approved')->name('profile.approved');
     Route::get('candidate/rejected/{id}', 'Admin\CandidateController@rejected')->name('profile.rejected');
@@ -56,7 +54,6 @@ Route::group(['prefix' => 'admin', 'as'=>'admin.'], function () {
         Route::get('completed/{id}', 'Admin\HireController@completed')->name('hire.complete');
         Route::get('hire/{id}', 'Admin\HireController@detail')->name('hire.detail');
     /******************INSTITUTE PROVIDER Profile ROUTES****************/
-    Route::view('institute/deposit', 'admin.institute.index')->name('institute.index');
     Route::view('institute', 'admin.institute.show')->name('institute.show');
     Route::get('institute/{id}', 'Admin\InstituteController@detail')->name('institute.detail');
     Route::get('institute/active/{id}', 'Admin\InstituteController@active')->name('institute.active');

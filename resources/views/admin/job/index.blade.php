@@ -43,10 +43,6 @@
 
             {{$job->summary}}
         </div>
-
-        <div class="ml-sm-3 mt-2 mt-sm-0">
-            <a href="{{route('admin.job.approved',$job->id)}}"><button class="btn btn-success">Approved</button></a>
-        </div>
         <div class="ml-sm-3 mt-2 mt-sm-0">
              <a href="{{route('admin.job.delete',$job->id)}}"><button class="btn btn-danger">Delete</button></a>
         </div>

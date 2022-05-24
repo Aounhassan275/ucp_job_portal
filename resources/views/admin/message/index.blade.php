@@ -52,7 +52,6 @@
 
                                 <a href="{{route('admin.message.active',$message->id)}}" class="dropdown-item"><i class="icon-file-excel"></i>Read</a>
                                 <a href="{{route('admin.message.destroy',$message->id)}}" class="dropdown-item"><i class="icon-file-excel"></i>Delete</a>
-                                {{-- <a href="{{route('admin.service.delete',$s_deposit->id)}}" class="dropdown-item"><i class="icon-file-excel"></i> Delete</a> --}}
                             </div>
                         </div>
                     </div>

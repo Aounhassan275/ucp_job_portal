@@ -6,7 +6,6 @@ use App\Helpers\Message;
 use App\Http\Controllers\Controller;
 use App\Models\Institute;
 use App\Models\Member;
-use App\Models\S_deposit;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -105,16 +104,6 @@ class InstituteController extends Controller
     public function destroy(Institute $institute)
     {
         //
-    }
-    
-    public function hire($id)
-    {
-        $s_deposit = S_deposit::find($id);
-        $s_deposit->update([
-            'status' => 'Hired'
-        ]);     
-        toastr()->success('You Hired Service Provider Successfully');
-        return redirect()->back();
     }
     
 }
