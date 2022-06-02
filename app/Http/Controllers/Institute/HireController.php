@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Institute;
 use App\Helpers\Message;
 use App\Http\Controllers\Controller;
 use App\Models\Hire;
+use Carbon\Carbon;
+use DateTime;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -38,6 +40,18 @@ class HireController extends Controller
      */
     public function store(Request $request)
     {
+        $interview_date = Carbon::parse($request->date);
+        if($interview_date->format('l') == 'Sunday')
+        {
+            toastr()->error('Sunday is Off.');
+            return redirect()->back();
+        }
+        if(!$interview_date->gte(Carbon::today()))
+        {
+            toastr()->error('Interview Date is invalid.Please Choose Future Date.');
+            return redirect()->back();
+        }
+
         $hire = Hire::create($request->all()); 
         toastr()->success('Your Hire Request Posted Successfully');
         return redirect()->route('institute.hire.index');
