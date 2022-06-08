@@ -24,6 +24,7 @@
                 <th class="text-center">Candidate Whatsapp</th>
                 <th class="text-center">Status</th>
                 <th class="text-center">Action</th>
+                <th class="text-center">Action</th>
             </tr> 
         </thead>
         <tbody>
@@ -40,7 +41,13 @@
                     <span class="badge badge-danger">{{$hire->status}}</span>
                     @endif
                 </td>
-
+                <td>
+                    <form action="{{route('institute.hire.destroy',$hire->id)}}" method="POST">
+                        @method('DELETE')
+                        @csrf
+                    <button class="btn btn-danger">Delete</button>
+                    </form>
+                </td>
                 <td class="text-center">
                     <div class="list-icons">
                         <div class="dropdown">

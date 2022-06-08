@@ -46,7 +46,7 @@ class HireController extends Controller
             toastr()->error('Sunday is Off.');
             return redirect()->back();
         }
-        if(!$interview_date->gte(Carbon::today()))
+        if(!$interview_date->gt(Carbon::today()))
         {
             toastr()->error('Interview Date is invalid.Please Choose Future Date.');
             return redirect()->back();
@@ -86,9 +86,30 @@ class HireController extends Controller
      * @param  \App\Models\Hire  $hire
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Hire $hire)
+    public function update(Request $request, $id)
     {
-        //
+        $hire = Hire::find($id);
+        if($request->date)
+        {
+            $interview_date = Carbon::parse($request->date);
+            if($interview_date->format('l') == 'Sunday')
+            {
+                toastr()->error('Sunday is Off.');
+                return redirect()->back();
+            }
+            if(!$interview_date->gt(Carbon::today()))
+            {
+                toastr()->error('Interview Date is invalid.Please Choose Future Date.');
+                return redirect()->back();
+            }
+        }else{
+            $request->merge([
+                'date'  => $hire->date,
+            ]);
+        }
+        $hire->update($request->all());
+        toastr()->success('Candidate Hirign Informations Updated successfully');
+        return redirect()->back();
     }
 
     /**
@@ -97,9 +118,12 @@ class HireController extends Controller
      * @param  \App\Models\Hire  $hire
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Hire $hire)
+    public function destroy($id)
     {
-        //
+        $hire = Hire::find($id);
+        $hire->delete();
+        toastr()->success('Hire Detail Deleted Successfuly');
+        return redirect()->back();
     }
      public function completed($id)
     {

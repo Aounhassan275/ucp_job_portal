@@ -79,16 +79,18 @@
                         </div>
 
                         <div class="card-body">
-                            <form action="#">
+                            <form action="{{route('institute.hire.update',$hire->id)}}" method="POST"  enctype="multipart/form-data"> 
+                                @method('PUT')
+                                @csrf
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-md-6">
                                             <label>Interview Time:</label>
-                                            <input type="text" class="form-control" value="{{@$hire->time}}">
+                                            <input type="text" class="form-control" name="time" value="{{@$hire->time}}">
                                         </div>
                                         <div class="col-md-6">
-                                            <label>Interview Date:</label>
-                                            <input type="text" class="form-control" value="{{@$hire->date}}" name="date" required>
+                                            <label>Interview Date: <span class="badge badge-success">{{@$hire->date}}</span></label>
+                                            <input type="date" class="form-control" name="date" >
                                         </div>
                                         <div class="col-md-12">
                                             <label>Interview Joining Link:</label>
@@ -96,10 +98,13 @@
                                         </div>
                                         <div class="col-md-12">
                                             <label>Description</label>
-                                            <textarea name="" id="" readonly="readonly"  class="form-control" cols="30" rows="10">{{$hire->description}}</textarea>
+                                            <textarea name="description" id=""   class="form-control" cols="30" rows="10">{{$hire->description}}</textarea>
                                         </div>
                                     </div>
                                 </div>
+                                <button type="submit" class="btn btn-primary">Update 
+                                    <i class="icon-plus22 ml-2"></i>
+                                </button>
                             </form>
                         </div>
                     </div>
