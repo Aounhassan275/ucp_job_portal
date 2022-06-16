@@ -37,11 +37,7 @@
                                     <ul>
                                         <li>{{$job->qualification}}</li>
                                         <li><i class="fas fa-map-marker-alt"></i>{{$job->city}}</li>
-                                        @if($job->salary)
                                         <li>{{$job->salary}}</li>
-                                        @else 
-                                        <li>{{$job->salary1}}</li>
-                                        @endif
                                     </ul>
                                 </div>
                             </div>

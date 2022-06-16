@@ -24,6 +24,7 @@
                 <th>Job Location</th>
                 <th>Job Status</th>
                 <th>Action</th>
+                <th>Action</th>
             </tr> 
         </thead>
         <tbody>
@@ -37,7 +38,14 @@
                     @else
                     <button class="button btn-danger">{{$job->status}}</button>
 					@endif   
-				</td>>
+				</td>
+                <td>
+                    <form action="{{route('institute.job.destroy',$job->id)}}" method="POST">
+                        @method('DELETE')
+                        @csrf
+                    <button class="btn btn-danger">Delete</button>
+                    </form>
+                </td>
                 <td class="text-center">
                     <div class="list-icons">
                         <div class="dropdown">
@@ -48,11 +56,11 @@
                             <div class="dropdown-menu dropdown-menu-right">
 								<a href="{{route('institute.job.edit',$job->id)}}" class="dropdown-item"><i class="fa fa-pencil"></i>Edit</a>
 								<a href="{{route('institute.job.show',$job->id)}}" class="dropdown-item"><i class="fa fa-pencil"></i>View Detail</a>
-								<a href="{{route('institute.job.destroy',$job->id)}}" class="dropdown-item"><i class="fa fa-remove"></i> Delete</a>
-                                {{-- <a href="{{route('candidate.candidate.delete',$candidate->id)}}" class="dropdown-item"><i class="icon-file-excel"></i> Delete</a>
+								{{-- <a href="{{route('institute.job.destroy',$job->id)}}" class="dropdown-item"><i class="fa fa-remove"></i> Delete</a>
+                                <a href="{{route('candidate.candidate.delete',$candidate->id)}}" class="dropdown-item"><i class="icon-file-excel"></i> Delete</a>
                                 <a href="{{route('admin.candidate.block',$candidate->id)}}" class="dropdown-item"><i class="icon-file-excel"></i> Block</a>
-                                <a href="{{route('admin.candidate.active',$candidate->id)}}" class="dropdown-item"><i class="icon-file-excel"></i> Active</a>
-                            </div> --}}
+                                <a href="{{route('admin.candidate.active',$candidate->id)}}" class="dropdown-item"><i class="icon-file-excel"></i> Active</a> --}}
+                            </div>
                         </div>
                     </div>
 				</td>

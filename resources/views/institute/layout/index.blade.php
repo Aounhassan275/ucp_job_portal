@@ -143,10 +143,6 @@
 								<div class="font-size-xs opacity-50">Inc.
 								</div>
 							</div>
-
-							<div class="ml-3 align-self-center">
-								<a href="#" class="text-white"><i class="icon-cog3"></i></a>
-							</div>
 						</div>
 					</div>
 				</div>
@@ -160,51 +156,52 @@
 							<!-- Main -->
 						<li class="nav-item-header"><div class="text-uppercase font-size-xs line-height-xs">Institute Panel</div> <i class="icon-menu" title="Main"></i></li>
 						<li class="nav-item">
-                            <a href="{{route('institute.dashboard.index')}}" class="nav-link {{Request::is('institute.dashboard.index')?'active':''}}">
+                            <a href="{{route('institute.dashboard.index')}}" class="nav-link {{Request::is('institute/dashboard')?'active':''}}">
                                 <i class="icon-home4"></i>
                                 <span>Dashboard</span>
                             </a>
                         </li>
 
                         <li class="nav-item">
-                            <a href="{{route('institute.job.browse_job')}}" class="nav-link {{Request::is('candidate.job.browse_job')?'active':''}}">
+                            <a href="{{route('institute.job.browse_job')}}" class="nav-link {{Request::is('candidate/job/browse_job')?'active':''}}">
                                 <i class="icon-folder-plus"></i>
                                 <span>Browse Job</span>
                             </a>
                         </li>   
                         <li class="nav-item">
-                            <a href="{{route('institute.candidate.index')}}" class="nav-link {{Request::is('institute.candidate.index')?'active':''}}">
+                            <a href="{{route('institute.candidate.index')}}" class="nav-link {{Request::is('institute/candidate')?'active':''}}">
                                 <i class="icon-folder-plus"></i>
                                 <span>Browse Candidate</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{route('institute.hire.index')}}" class="nav-link {{Request::is('institute.candidate.index')?'active':''}}">
+                            <a href="{{route('institute.hire.index')}}" class="nav-link {{Request::is('institute/hire')?'active':''}}">
                                 <i class="icon-folder-plus"></i>
                                 <span>Candidate Hire Request</span>
                                 {{-- <span class="badge bg-success-400 align-self-center ml-auto">{{Auth::user()->hires->where('')}}</span> --}}
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{route('institute.applicant.index')}}" class="nav-link {{Request::is('institute.candidate.index')?'active':''}}">
+                            <a href="{{route('institute.applicant.index')}}" class="nav-link {{Request::is('institute/applicant')?'active':''}}">
                                 <i class="icon-folder-plus"></i>
                                 <span>Candidate Application Request</span>
+								<span class="badge bg-success-400 align-self-center ml-auto">{{Auth::user()->applicants->count()}}</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{route('institute.job.create')}}" class="nav-link {{Request::is('institute.job.create')?'active':''}}">
+                            <a href="{{route('institute.job.create')}}" class="nav-link {{Request::is('institute/job/create')?'active':''}}">
                                 <i class="icon-user"></i>
                                 <span>Create Job</span>
                             </a>
                         </li>   
                         <li class="nav-item">
-                            <a href="{{route('institute.job.index')}}" class="nav-link {{Request::is('institute.job.index')?'active':''}}">
+                            <a href="{{route('institute.job.index')}}" class="nav-link {{Request::is('institute/job')?'active':''}}">
                                 <i class="icon-user"></i>
                                 <span>Manage Job</span>
                             </a>
                         </li>   
                         <li class="nav-item">
-                            <a href="{{route('institute.profile.index')}}" class="nav-link {{Request::is('institute.profile.index')?'active':''}}">
+                            <a href="{{route('institute.profile.index')}}" class="nav-link {{Request::is('institute/profile')?'active':''}}">
                                 <i class="icon-stack3"></i>
                                 <span>Account Setting</span>
                             </a>

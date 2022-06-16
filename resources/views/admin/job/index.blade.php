@@ -26,11 +26,7 @@
                 <li class="list-inline-item"><a href="#" class="text-muted">{{$job->type}}</a></li>
                 <li class="list-inline-item">{{$job->location}}</li>                
                 <li class="list-inline-item">{{$job->qualification}}</li>      
-                @if($job->salary)
                 <li class="list-inline-item">{{$job->salary}}</li>
-                @else
-                <li class="list-inline-item">{{$job->salary}}</li>
-                @endif
                 <li class="list-inline-item">{{$job->category->name}}</li>
                 <li class="list-inline-item">{{$job->institute->name}}</li>
                 <li class="list-inline-item">
@@ -44,6 +40,7 @@
             {{$job->summary}}
         </div>
         <div class="ml-sm-3 mt-2 mt-sm-0">
+             <a href="{{route('admin.job.approved',$job->id)}}"><button class="btn btn-success">Approve</button></a>
              <a href="{{route('admin.job.delete',$job->id)}}"><button class="btn btn-danger">Delete</button></a>
         </div>
     </div>

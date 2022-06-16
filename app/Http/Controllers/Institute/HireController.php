@@ -51,7 +51,6 @@ class HireController extends Controller
             toastr()->error('Interview Date is invalid.Please Choose Future Date.');
             return redirect()->back();
         }
-
         $hire = Hire::create($request->all()); 
         toastr()->success('Your Hire Request Posted Successfully');
         return redirect()->route('institute.hire.index');
@@ -107,6 +106,7 @@ class HireController extends Controller
                 'date'  => $hire->date,
             ]);
         }
+        dd($request);
         $hire->update($request->all());
         toastr()->success('Candidate Hirign Informations Updated successfully');
         return redirect()->back();

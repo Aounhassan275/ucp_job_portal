@@ -167,25 +167,25 @@
 							</a>
 						</li>
 						<li class="nav-item">
-							<a href="{{route('candidate.job.index')}}" class="nav-link {{Request::is('candidate.job.index')?'active':''}}">
+							<a href="{{route('candidate.job.index')}}" class="nav-link {{Request::is('candidate/job')?'active':''}}">
 								<i class="icon-folder-plus"></i>
 								<span>Browse Job</span>
 							</a>
 						</li>	
 						<li class="nav-item">
-							<a href="{{route('candidate.profile.create')}}" class="nav-link {{Request::is('candidate.profile.create')?'active':''}}">
+							<a href="{{route('candidate.profile.create')}}" class="nav-link {{Request::is('candidate/profile/create')?'active':''}}">
 								<i class="icon-folder-plus"></i>
 								<span>Create CV</span>
 							</a>
 						</li>	
 						<li class="nav-item">
-							<a href="{{route('candidate.profile.index')}}" class="nav-link {{Request::is('candidate.profile.index')?'active':''}}">
+							<a href="{{route('candidate.profile.index')}}" class="nav-link {{Request::is('candidate/profile')?'active':''}}">
 								<i class="icon-folder-plus"></i>
 								<span>Manage CV</span>
 							</a>
 						</li>
 						<li class="nav-item">
-							<a href="{{route('candidate.hire.index')}}" class="nav-link {{Request::is('candidate.profile.index')?'active':''}}">
+							<a href="{{route('candidate.hire.index')}}" class="nav-link {{Request::is('candidate/hire')?'active':''}}">
 								<i class="icon-folder-plus"></i>
 								<span>Hire Request</span>
 								<span class="badge bg-success-400 align-self-center ml-auto">{{Auth::user()->hire()}}</span>
@@ -193,13 +193,13 @@
 							</a>
 						</li>
 						<li class="nav-item">
-							<a href="{{route('candidate.applicant.index')}}" class="nav-link {{Request::is('candidate.profile.index')?'active':''}}">
+							<a href="{{route('candidate.applicant.index')}}" class="nav-link {{Request::is('candidate/applicant')?'active':''}}">
 								<i class="icon-folder-plus"></i>
 								<span>Application Request</span>
 							</a>
 						</li>	
 						<li class="nav-item">
-							<a href="{{route('candidate.profiles.index')}}" class="nav-link {{Request::is('candidate.candidate.index')?'active':''}}">
+							<a href="{{route('candidate.profiles.index')}}" class="nav-link {{Request::is('candidate/profiles')?'active':''}}">
 								<i class="icon-user"></i>
 								<span>Account Setting</span>
 							</a>

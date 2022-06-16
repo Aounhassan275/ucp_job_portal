@@ -48,11 +48,7 @@
                                 </a>
                                 <ul>
                                     <li>{{$job->category->name}}</li>
-                                    @if($job->salary)
                                     <li>{{$job->salary}}</li>
-                                    @else 
-                                    <li>{{$job->salary1}}</li>
-                                    @endif
                                 </ul>
                             </div>
                         </div>

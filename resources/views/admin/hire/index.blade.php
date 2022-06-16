@@ -27,11 +27,10 @@
                 <th class="text-center">Institute Whatsapp</th>
                 <th class="text-center">Candidate Whatsapp</th>
                 <th class="text-center">Status</th>
-                <th class="text-center">Action</th>
             </tr> 
         </thead>
         <tbody>
-            @foreach (App\Models\Hire::onHold() as $key => $hire)
+            @foreach (App\Models\Hire::all() as $key => $hire)
 
             <tr>
                 <td>{{$key + 1}}</td>
@@ -57,26 +56,6 @@
                     <span class="badge badge-danger">{{$hire->status}}</span>
                     @endif
                 </td>
-
-                <td class="text-center">
-                    <div class="list-icons">
-                        <div class="dropdown">
-                            <a href="#" class="list-icons-item" data-toggle="dropdown">
-                                <i class="icon-menu9"></i>
-                            </a>
-
-                            <div class="dropdown-menu dropdown-menu-right">
-                                <a href="{{route('admin.hire.detail',$hire->id)}}" class="dropdown-item"><i class="icon-file-pdf"></i> View Detail</a>
-                                <a href="{{route('admin.hire.complete',$hire->id)}}" class="dropdown-item"><i class="icon-file-pdf"></i> On Hold</a>
-                                {{-- <a href="{{route('admin.candidate.active',$candidate->id)}}" class="dropdown-item"><i class="icon-file-pdf"></i> Active Candidate</a> --}}
-                                {{-- <a href="{{route('candidate.candidate.delete',$candidate->id)}}" class="dropdown-item"><i class="icon-file-excel"></i> Delete</a>
-                                <a href="{{route('admin.candidate.block',$candidate->id)}}" class="dropdown-item"><i class="icon-file-excel"></i> Block</a>
-                                <a href="{{route('admin.candidate.active',$candidate->id)}}" class="dropdown-item"><i class="icon-file-excel"></i> Active</a>
-                            </div> --}}
-                        </div>
-                    </div>
-                </td>
-                <td></td>
             </tr>
             @endforeach
         </tbody>

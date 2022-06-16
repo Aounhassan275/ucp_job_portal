@@ -66,12 +66,8 @@
 						</div> 
 						<div class="form-group col-md-6">
 							<label>Job Salary</label>
-							<input class="form-control" name="salary" type="text" placeholder="" value="{{$job->salary}}"/>                       
-						</div>  
-						<div class="form-group col-md-6">
-							<label>Job Fixed Salary</label>
-							<select name="salary1" data-placeholder="PKR 12,000/-" class="form-control" value="{{$job->salary1}}">
-							    <option value="{{$job->salary1}}">{{$job->salary1}}</option>
+							<select name="salary" data-placeholder="PKR 12,000/-" class="form-control" value="{{$job->salary}}">
+							    <option value="{{$job->salary}}">{{$job->salary}}</option>
 								<option value="">Select</option>
 								<option value="PKR 5,000 - PKR 10,000/-">PKR 5,000 - PKR 10,000/-</option>
 								<option value="PKR 10,000 - PKR 15,000/-">PKR 10,000 - PKR 15,000/-</option>
@@ -92,7 +88,7 @@
 						</div> 
 						                        <div class="form-group col-md-6">
                             <label>City</label>
-                            <select name="city" id="city" class="form-control form-control-select2"  value="{{$job->salary1}}" data-fouc required>
+                            <select name="city" id="city" class="form-control form-control-select2"  value="{{$job->city}}" data-fouc required>
 							    <option value="{{$job->city}}">{{$job->city}}</option>
                                 <optgroup label="Popular Cities">
                                     <option value="karachi">Karachi</option>

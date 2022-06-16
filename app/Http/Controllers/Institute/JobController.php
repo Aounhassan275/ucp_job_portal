@@ -87,8 +87,10 @@ class JobController extends Controller
      * @param  \App\Models\Job  $job
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Job $job)
+    public function destroy($id)
     {
+        $job = Job::find($id);
+        $job->applicants->delete();
         $job->delete();
         toastr()->success('Job Detail Deleted Successfuly');
         return redirect()->back();

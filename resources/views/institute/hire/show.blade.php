@@ -86,7 +86,7 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <label>Interview Time:</label>
-                                            <input type="text" class="form-control" name="time" value="{{@$hire->time}}">
+                                            <input type="text" class="form-control" name="time" value="{{Carbon\Carbon::parse(@$hire->time)->format('h:m A')}}">
                                         </div>
                                         <div class="col-md-6">
                                             <label>Interview Date: <span class="badge badge-success">{{@$hire->date}}</span></label>

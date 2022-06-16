@@ -56,8 +56,8 @@
                             </select>                  
                         </div> 
                         <div class="form-group col-md-6">
-                        	<label>Job Fix Salary</label>
-							<select name="salary1" data-placeholder="PKR 12,000/-" class="form-control">
+                        	<label>Job Salary</label>
+							<select name="salary" data-placeholder="PKR 12,000/-" class="form-control">
 								<option value="">Select</option>
 								<option value="PKR 5,000 - PKR 10,000/-">PKR 5,000 - PKR 10,000/-</option>
 								<option value="PKR 10,000 - PKR 15,000/-">PKR 10,000 - PKR 15,000/-</option>
@@ -76,12 +76,6 @@
 								<option value="Above PKR 200,000 ">AbovePKR 200,000/-</option>
 							</select> 
                         </div>      
-                        <div class="form-group col-md-6">
-							<label>Job Salary</label>
-                            <input class="form-control" name="salary" type="text" placeholder="PKR 12,000/-" value=""/> 
-                       
-                            <input class="form-control" name="status" type="hidden" placeholder="" value="Approved"/>                       
-                        </div>
                         <div class="form-group col-md-6">
                                             <label>City</label>
                                             <select name="city" id="city" class="form-control form-control-select2" data-fouc required>

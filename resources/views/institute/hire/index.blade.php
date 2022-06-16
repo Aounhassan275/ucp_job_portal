@@ -57,7 +57,9 @@
 
                             <div class="dropdown-menu dropdown-menu-right">
                                 <a href="{{route('institute.hire.show',$hire->id)}}" class="dropdown-item"><i class="icon-file-pdf"></i> View Detail</a>
+                                @if($hire->completedStatus())
                                 <a href="{{route('institute.hire.completed',$hire->id)}}" class="dropdown-item"><i class="icon-file-pdf"></i> Hire Candidate</a>
+                               @endif
                                 {{-- <a href="{{route('candidate.candidate.delete',$candidate->id)}}" class="dropdown-item"><i class="icon-file-excel"></i> Delete</a>
                                 <a href="{{route('admin.candidate.block',$candidate->id)}}" class="dropdown-item"><i class="icon-file-excel"></i> Block</a>
                                 <a href="{{route('admin.candidate.active',$candidate->id)}}" class="dropdown-item"><i class="icon-file-excel"></i> Active</a>

@@ -20,11 +20,7 @@
 					<li class="list-inline-item">{{$job->category->name}}</li>
 					<li class="list-inline-item">{{$job->type}}</li>
 					<li class="list-inline-item">{{$job->qualification}}</li>
-					@if($job->salary)
 					<li class="list-inline-item">{{$job->salary}}</li>
-					@else
-					<li class="list-inline-item">{{$job->salary1}}</li>
-					@endif
 				</ul>
 			</div>
 

@@ -196,10 +196,7 @@
                                 <li class="list-inline-item">{{$hire->job->salary}}</li>
                                 <li class="list-inline-item">{{$hire->job->category->name}}</li>
                                 <li class="list-inline-item">{{$hire->job->institute->name}}</li>
-                                @if($hire->job->member)
-                                <li class="list-inline-item">Created By:{{$hire->job->member->name}}    
-                                </li>
-                                @endif
+    
                                 <li class="list-inline-item">
                                     @if($hire->job->status=="Approved")
                                     <span class="badge badge-success">{{$hire->job->status}}</span>
@@ -300,12 +297,30 @@
 
                 </div>
                 <div class="card-body">
-                        
-                            <div class="form-group col-md-12">
-                                <label>Enter User Review Message</label>
-                                <textarea name="message" id="" cols="30" rows="10" class="form-control" readonly>{{$hire->description}}</textarea>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Interview Time:</label>
+                                <input type="text" class="form-control" name="time" value="{{Carbon\Carbon::parse(@$hire->time)->format('h:m A')}}">
+                            </div>
+                            <div class="col-md-6">
+                                <label>Interview Date: <span class="badge badge-success">{{@$hire->date}}</span></label>
+                                <input type="date" class="form-control" name="date" >
+                            </div>
+                            <div class="col-md-12">
+                                <label>Interview Joining Link:</label>
+                                <input type="text" class="form-control" value="{{@$hire->link}}" name="link" required>
+                            </div>
+                            <div class="col-md-12">
+                                <label>Description</label>
+                                <textarea name="description" id=""   class="form-control" cols="30" rows="10">{{$hire->description}}</textarea>
                             </div>
                         </div>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label>Enter User Review Message</label>
+                        <textarea name="message" id="" cols="30" rows="10" class="form-control" readonly>{{$hire->description}}</textarea>
+                    </div>
                 </div>
 
             </div>

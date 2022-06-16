@@ -330,7 +330,7 @@
                     <div class="row">
                         <div class="col-md-6">
                             <label>Interview Time:</label>
-                            <input type="text" class="form-control" value="{{@$hire->time}}">
+                            <input type="text" class="form-control" value="{{Carbon\Carbon::parse(@$hire->time)->format('h:m A')}}">
                         </div>
                         <div class="col-md-6">
                             <label>Interview Date:</label>

@@ -27,7 +27,7 @@
                 <th class="text-center">Institute Whatsapp</th>
                 <th class="text-center">Candidate Whatsapp</th>
                 <th class="text-center">Status</th>
-                <th class="text-center">Action</th
+                <th class="text-center">Action</th>
             </tr> 
         </thead>
         <tbody>
